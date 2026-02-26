@@ -19,7 +19,7 @@ export interface WarrantyStatus {
  */
 export function calculateWarrantyStatus(purchaseDateStr: string): WarrantyStatus {
   const warrantyMonths = getWarrantyDurationMonths();
-  const purchaseDate = new Date(purchaseDateStr);
+  const purchaseDate = new Date(purchaseDateStr + "T00:00:00");
   const today = new Date();
 
   // Calculer la date de fin de garantie

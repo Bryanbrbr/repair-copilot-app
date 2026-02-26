@@ -3,16 +3,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
-const baseUrl = "https://repair-copilot-app.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "Repair Copilot — Mail de réclamation garantie gratuit en 30 secondes",
@@ -33,6 +32,9 @@ export const metadata: Metadata = {
     "article L217-3",
   ],
   authors: [{ name: "Repair Copilot" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",

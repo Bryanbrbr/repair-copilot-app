@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import MailGeneratorForm from "@/components/MailGenerator/MailGeneratorForm";
 import { WARRANTY_DISCLAIMER } from "@/lib/legal-references";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Générateur de mail de réclamation garantie légale — Gratuit",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     "modèle lettre panne appareil",
   ],
   alternates: {
-    canonical: "https://repair-copilot-app.vercel.app/generateur",
+    canonical: "/generateur",
   },
 };
 
@@ -123,7 +124,7 @@ export default function GenerateurPage() {
             name: "Générateur de mail de réclamation garantie",
             description:
               "Outil gratuit pour générer un mail de réclamation professionnel basé sur la garantie légale de conformité française.",
-            url: "https://repair-copilot-app.vercel.app/generateur",
+            url: `${SITE_URL}/generateur`,
             applicationCategory: "UtilityApplication",
             operatingSystem: "Web",
             offers: {

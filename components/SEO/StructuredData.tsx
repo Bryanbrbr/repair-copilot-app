@@ -44,11 +44,12 @@ export function buildFAQSchema(items: FAQItem[]) {
 }
 
 export function buildWebAppSchema(overrides?: Record<string, unknown>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://repair-copilot-app.vercel.app";
   return {
     name: "Repair Copilot",
     description:
       "Générateur gratuit de mail de réclamation pour faire valoir la garantie légale de conformité en France.",
-    url: "https://repair-copilot-app.vercel.app",
+    url: siteUrl,
     applicationCategory: "UtilityApplication",
     operatingSystem: "Web",
     offers: {
@@ -75,11 +76,12 @@ export function buildBreadcrumbSchema(
 }
 
 export function buildArticleSchema(overrides: Record<string, unknown>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://repair-copilot-app.vercel.app";
   return {
     publisher: {
       "@type": "Organization",
       name: "Repair Copilot",
-      url: "https://repair-copilot-app.vercel.app",
+      url: siteUrl,
     },
     inLanguage: "fr",
     ...overrides,

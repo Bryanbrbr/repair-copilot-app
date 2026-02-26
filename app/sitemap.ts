@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllApplianceSlugs } from "@/lib/appliances";
+import { SITE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://repair-copilot-app.vercel.app";
+  const baseUrl = SITE_URL;
   const now = new Date();
 
   // Pages statiques
