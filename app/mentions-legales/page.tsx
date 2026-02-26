@@ -36,7 +36,13 @@ export default function MentionsLegalesPage() {
               garantie légale de conformité.
             </p>
             <p className="text-[var(--color-text-light)] leading-relaxed mt-2">
-              <strong>Contact :</strong> contact@repair-copilot.fr
+              <strong>Contact :</strong>{" "}
+              <a
+                href="mailto:repaircopilot.contact@gmail.com"
+                className="text-[var(--color-primary)] hover:underline"
+              >
+                repaircopilot.contact@gmail.com
+              </a>
             </p>
           </section>
 
