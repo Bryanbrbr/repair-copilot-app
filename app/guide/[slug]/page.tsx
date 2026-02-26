@@ -6,6 +6,7 @@ import {
   getApplianceBySlug,
   getAllApplianceSlugs,
 } from "@/lib/appliances";
+import { SITE_URL } from "@/lib/config";
 
 // Génération statique des pages
 export function generateStaticParams() {
@@ -35,6 +36,9 @@ export async function generateMetadata({
       `${appliance.name.toLowerCase()} en panne que faire`,
       `réparation ${appliance.name.toLowerCase()} droits`,
     ],
+    alternates: {
+      canonical: `/guide/${slug}`,
+    },
     openGraph: {
       title: appliance.seoTitle,
       description: appliance.seoDescription,
@@ -323,19 +327,19 @@ export default async function GuideAppliancePage({
                 "@type": "ListItem",
                 position: 1,
                 name: "Accueil",
-                item: "https://repair-copilot-app.vercel.app",
+                item: `${SITE_URL}`,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Guides",
-                item: "https://repair-copilot-app.vercel.app/guide",
+                item: `${SITE_URL}/guide`,
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: appliance.name,
-                item: `https://repair-copilot-app.vercel.app/guide/${appliance.slug}`,
+                item: `${SITE_URL}/guide/${appliance.slug}`,
               },
             ],
           }),

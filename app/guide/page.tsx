@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { appliances } from "@/lib/appliances";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Guides par appareil — Vos droits de garantie",
+  title: "Guides garantie par appareil — Lave-linge, frigo, TV, smartphone",
   description:
-    "Consultez nos guides dédiés pour comprendre vos droits de garantie selon votre type d'appareil en panne : lave-linge, réfrigérateur, TV, smartphone et plus.",
+    "Consultez nos guides dédiés pour comprendre vos droits de garantie légale selon votre appareil en panne : lave-linge, réfrigérateur, TV, smartphone, aspirateur et plus.",
   keywords: [
     "guide garantie appareil",
     "garantie électroménager",
     "panne appareil droits",
     "garantie légale appareils",
+    "lave-linge en panne garantie",
+    "réfrigérateur panne droits",
   ],
+  alternates: {
+    canonical: "/guide",
+  },
 };
 
 export default function GuidesIndexPage() {
@@ -91,13 +97,13 @@ export default function GuidesIndexPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Accueil",
-                item: "https://repair-copilot-app.vercel.app",
+                item: `${SITE_URL}`,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Guides par appareil",
-                item: "https://repair-copilot-app.vercel.app/guide",
+                item: `${SITE_URL}/guide`,
               },
             ],
           }),

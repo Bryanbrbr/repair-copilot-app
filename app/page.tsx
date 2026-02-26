@@ -8,11 +8,11 @@ import StructuredData, {
 
 export const metadata: Metadata = {
   title:
-    "Garantie légale en panne ? Mail de réclamation gratuit en 30 secondes | Repair Copilot",
+    "Appareil en panne ? Mail de réclamation garantie légale gratuit | Repair Copilot",
   description:
-    "Votre appareil est en panne ? Vérifiez gratuitement si votre garantie légale de conformité (2 ans) est encore active et générez un mail de réclamation professionnel avec les articles de loi. Sans inscription.",
+    "Lave-linge, frigo, TV, smartphone en panne ? Vérifiez votre garantie légale de conformité (2 ans) et générez un mail de réclamation professionnel gratuit avec les articles de loi. Sans inscription, 100% gratuit.",
   alternates: {
-    canonical: "https://repair-copilot-app.vercel.app",
+    canonical: "/",
   },
 };
 
@@ -61,16 +61,17 @@ export default function HomePage() {
             Appareil en panne ?
             <br />
             <span className="text-[var(--color-primary)]">
-              Obtenez un mail de réclamation gratuit en 30 secondes
+              Faites valoir votre garantie légale en 30 secondes
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-[var(--color-text-light)] max-w-2xl mx-auto mb-4 leading-relaxed">
-            La loi vous protège <strong>2 ans</strong> après l&apos;achat. Le vendeur
-            doit réparer ou remplacer sans frais.
+            La loi française vous protège <strong>2 ans</strong> après l&apos;achat.
+            Générez un mail de réclamation professionnel avec les articles de loi,
+            prêt à envoyer au vendeur.
           </p>
           <p className="text-base text-[var(--color-text-light)] max-w-xl mx-auto mb-8">
-            Ne rachetez pas inutilement. Vérifiez vos droits et envoyez un mail
-            professionnel avec les bons articles de loi.
+            Lave-linge, réfrigérateur, TV, smartphone… Ne rachetez pas avant
+            d&apos;avoir vérifié vos droits.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -88,9 +89,22 @@ export default function HomePage() {
           </div>
 
           {/* Social proof */}
-          <p className="mt-6 text-sm text-[var(--color-text-light)]">
-            Fonctionne pour tous les appareils : électroménager, TV, smartphone, PC...
-          </p>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[var(--color-text-light)]">
+            <div className="flex items-center gap-2">
+              <span className="text-green-500 text-lg">⚖️</span>
+              <span>Basé sur le <strong>Code de la consommation</strong></span>
+            </div>
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-gray-300" />
+            <div className="flex items-center gap-2">
+              <span className="text-green-500 text-lg">🛡️</span>
+              <span><strong>22 types</strong> d&apos;appareils couverts</span>
+            </div>
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-gray-300" />
+            <div className="flex items-center gap-2">
+              <span className="text-green-500 text-lg">🔒</span>
+              <span>Données <strong>100% privées</strong></span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -256,22 +270,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Chiffres clés — crédibilité */}
+      <section className="py-12 bg-white border-t border-[var(--color-border)]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">2 ans</div>
+              <p className="text-sm text-[var(--color-text-light)] mt-1">de garantie légale minimum</p>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">0 €</div>
+              <p className="text-sm text-[var(--color-text-light)] mt-1">frais de réparation pour vous</p>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">30 sec</div>
+              <p className="text-sm text-[var(--color-text-light)] mt-1">pour générer votre mail</p>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">22+</div>
+              <p className="text-sm text-[var(--color-text-light)] mt-1">types d&apos;appareils couverts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="py-16 bg-[var(--color-primary)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Votre appareil est en panne ?
+            Ne laissez pas le vendeur ignorer vos droits
           </h2>
           <p className="text-blue-100 text-lg mb-8">
-            Ne perdez plus de temps ni d&apos;argent. Vérifiez vos droits et
-            agissez maintenant.
+            Chaque jour qui passe rapproche votre garantie de l&apos;expiration.
+            Agissez maintenant — c&apos;est gratuit et ça prend 30 secondes.
           </p>
           <Link
             href="/generateur"
             className="bg-white hover:bg-gray-100 text-[var(--color-primary)] text-lg font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg inline-block"
           >
-            🔧 Générer mon mail gratuitement
+            Vérifier mes droits et générer mon mail →
           </Link>
+          <p className="text-blue-200 text-xs mt-4">
+            Aucune inscription · Aucune donnée collectée · Résultat immédiat
+          </p>
         </div>
       </section>
 

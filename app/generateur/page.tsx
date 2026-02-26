@@ -28,14 +28,19 @@ export default function GenerateurPage() {
           {/* En-tête */}
           <div className="text-center mb-10">
             <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-4">
-              Générateur de mail de réclamation
+              Générez votre mail de réclamation garantie
             </h1>
             <p className="text-lg text-[var(--color-text-light)] max-w-2xl mx-auto leading-relaxed">
-              Remplissez le formulaire ci-dessous pour générer un mail de
-              réclamation professionnel basé sur la{" "}
-              <strong>garantie légale de conformité</strong> (articles L217-3 et
-              suivants du Code de la consommation).
+              Remplissez le formulaire, on génère un mail professionnel avec les{" "}
+              <strong>articles de loi</strong> adaptés à votre situation.
+              Prêt à copier et envoyer en 30 secondes.
             </p>
+            {/* Micro-copy rassurante */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-4 text-xs text-[var(--color-text-light)]">
+              <span className="flex items-center gap-1">🔒 Aucune donnée stockée</span>
+              <span className="flex items-center gap-1">⚡ Résultat instantané</span>
+              <span className="flex items-center gap-1">📋 3 tons disponibles</span>
+            </div>
           </div>
 
           {/* Formulaire */}
