@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Repair Copilot" }],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -42,6 +43,14 @@ export const metadata: Metadata = {
     title: "Repair Copilot — Mail de réclamation garantie gratuit",
     description:
       "Appareil en panne ? Générez un mail de réclamation professionnel gratuit avec les articles de loi en 30 secondes.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Repair Copilot — Générateur de mail de réclamation garantie légale",
+      },
+    ],
   },
   robots: {
     index: true,
