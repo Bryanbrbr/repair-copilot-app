@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllApplianceSlugs } from "@/lib/appliances";
+import { getAllProblemPageParams } from "@/lib/problem-pages";
 import { SITE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,5 +45,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticPages, ...guidePages];
+  // Pages longue traîne — pannes spécifiques
+  const problemPages: MetadataRoute.Sitemap = getAllProblemPageParams().map(
+    ({ slug, problemSlug }) => ({
+      url: `${baseUrl}/guide/${slug}/${problemSlug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })
+  );
+
+  return [...staticPages, ...guidePages, ...problemPages];
 }

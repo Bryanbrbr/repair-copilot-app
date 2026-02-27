@@ -1,4 +1,5 @@
 export interface CommonProblem {
+  slug: string;
   name: string;
   description: string;
   selfFixable: boolean;
@@ -32,6 +33,7 @@ export const appliances: Appliance[] = [
       "Le lave-linge est l'un des appareils électroménagers les plus sollicités au quotidien. Lorsqu'il tombe en panne, c'est souvent la panique. Pourtant, en tant que consommateur en France, vous bénéficiez de droits solides grâce à la garantie légale de conformité.",
     commonProblems: [
       {
+        slug: "tambour-ne-tourne-plus",
         name: "Le tambour ne tourne plus",
         description:
           "Peut être causé par une courroie cassée, un moteur défaillant ou un problème de carte électronique.",
@@ -39,6 +41,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "80 à 250 €",
       },
       {
+        slug: "fuite-eau",
         name: "Fuite d'eau",
         description:
           "Souvent liée au joint de hublot, au tuyau d'arrivée ou à la pompe de vidange.",
@@ -46,6 +49,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 150 €",
       },
       {
+        slug: "ne-sallume-plus",
         name: "Ne s'allume plus",
         description:
           "Peut venir de la carte électronique, du verrou de porte ou d'un problème électrique.",
@@ -53,6 +57,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "100 à 300 €",
       },
       {
+        slug: "bruits-anormaux",
         name: "Bruits anormaux",
         description:
           "Roulements usés, amortisseurs défectueux ou objet coincé dans le tambour.",
@@ -98,6 +103,7 @@ export const appliances: Appliance[] = [
       "Un lave-vaisselle en panne, c'est un quotidien bouleversé. Avant de racheter ou de payer une réparation coûteuse, vérifiez vos droits : la garantie légale de conformité de 2 ans pourrait couvrir la réparation.",
     commonProblems: [
       {
+        slug: "ne-lave-plus-correctement",
         name: "Ne lave plus correctement",
         description:
           "Bras de lavage bouchés, pompe de circulation défectueuse ou problème de chauffe.",
@@ -105,6 +111,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "ne-vidange-plus",
         name: "Ne vidange plus",
         description:
           "Filtre obstrué, pompe de vidange en panne ou tuyau bouché.",
@@ -112,6 +119,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "40 à 180 €",
       },
       {
+        slug: "fuite-eau",
         name: "Fuite d'eau",
         description:
           "Joint de porte usé, raccord desserré ou bac à sel fissuré.",
@@ -119,6 +127,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 150 €",
       },
       {
+        slug: "code-erreur",
         name: "Affiche un code erreur",
         description:
           "Les codes erreur varient selon les marques. Souvent lié à un capteur ou un composant électronique.",
@@ -164,6 +173,7 @@ export const appliances: Appliance[] = [
       "Un réfrigérateur en panne, c'est une urgence : les aliments se gâtent rapidement. Avant de paniquer ou de courir en magasin, vérifiez si votre appareil est encore couvert par la garantie légale de conformité.",
     commonProblems: [
       {
+        slug: "ne-refroidit-plus",
         name: "Ne refroidit plus",
         description:
           "Compresseur défaillant, fuite de gaz réfrigérant ou thermostat en panne.",
@@ -171,6 +181,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "150 à 400 €",
       },
       {
+        slug: "trop-de-givre",
         name: "Fait trop de givre",
         description:
           "Joint de porte défectueux, sonde de température en panne ou système de dégivrage automatique défaillant.",
@@ -178,6 +189,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "fait-du-bruit",
         name: "Fait du bruit",
         description:
           "Ventilateur obstrué, compresseur vieillissant ou appareil mal nivelé.",
@@ -185,6 +197,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 250 €",
       },
       {
+        slug: "fuite-eau-sous-appareil",
         name: "Fuite d'eau sous l'appareil",
         description:
           "Bac de récupération plein, tuyau de vidange bouché ou joint défectueux.",
@@ -230,6 +243,7 @@ export const appliances: Appliance[] = [
       "Que ce soit un four encastrable ou un micro-ondes, une panne peut vite compliquer le quotidien. La garantie légale de conformité vous protège pendant 2 ans après l'achat.",
     commonProblems: [
       {
+        slug: "ne-chauffe-plus",
         name: "Ne chauffe plus",
         description:
           "Résistance grillée, thermostat défectueux ou carte électronique en panne.",
@@ -237,6 +251,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "80 à 300 €",
       },
       {
+        slug: "porte-ne-ferme-plus",
         name: "La porte ne ferme plus correctement",
         description:
           "Charnières usées ou verrou de porte défectueux.",
@@ -244,6 +259,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 100 €",
       },
       {
+        slug: "plateau-ne-tourne-plus",
         name: "Le plateau du micro-ondes ne tourne plus",
         description:
           "Moteur du plateau en panne ou entraîneur cassé.",
@@ -251,6 +267,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "20 à 80 €",
       },
       {
+        slug: "affichage-ne-repond-plus",
         name: "Affichage ou boutons ne répondent plus",
         description:
           "Carte de commande défectueuse ou problème de connectique.",
@@ -296,6 +313,7 @@ export const appliances: Appliance[] = [
       "Un sèche-linge en panne, surtout en hiver, c'est un vrai problème. Avant de penser à le remplacer, vérifiez si vous pouvez faire jouer vos droits de garantie.",
     commonProblems: [
       {
+        slug: "ne-seche-plus",
         name: "Ne sèche plus correctement",
         description:
           "Filtre obstrué, résistance de chauffe défectueuse ou condenseur encrassé.",
@@ -303,6 +321,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "ne-demarre-plus",
         name: "Ne démarre plus",
         description:
           "Problème de carte électronique, verrou de porte ou courroie cassée.",
@@ -310,6 +329,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "80 à 250 €",
       },
       {
+        slug: "bruit-anormal",
         name: "Fait un bruit anormal",
         description:
           "Roulements usés, tambour désaxé ou objet coincé.",
@@ -317,6 +337,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "60 à 200 €",
       },
       {
+        slug: "mauvaise-odeur",
         name: "Dégage une mauvaise odeur",
         description:
           "Filtre à peluches saturé, condenseur sale ou résidu d'humidité stagnante.",
@@ -362,6 +383,7 @@ export const appliances: Appliance[] = [
       "Qu'il s'agisse d'un aspirateur traîneau, balai ou robot, une panne prématurée est frustrante. La garantie légale de conformité vous protège pendant 2 ans.",
     commonProblems: [
       {
+        slug: "perte-aspiration",
         name: "Perte d'aspiration",
         description:
           "Filtre encrassé, sac plein, tuyau obstrué ou moteur fatigué.",
@@ -369,6 +391,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "20 à 100 €",
       },
       {
+        slug: "ne-sallume-plus",
         name: "Ne s'allume plus",
         description:
           "Problème de batterie (sans fil), câble endommagé ou moteur en panne.",
@@ -376,6 +399,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "bruit-excessif",
         name: "Bruit excessif",
         description:
           "Moteur usé, hélice endommagée ou objet coincé dans le tuyau.",
@@ -383,6 +407,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 150 €",
       },
       {
+        slug: "batterie-ne-tient-plus",
         name: "Batterie ne tient plus (sans fil)",
         description:
           "Batterie en fin de vie ou chargeur défectueux.",
@@ -428,6 +453,7 @@ export const appliances: Appliance[] = [
       "Une télévision en panne est particulièrement frustrante, surtout quand elle était chère. La garantie légale de conformité de 2 ans vous couvre contre les défauts qui n'existaient pas au moment de l'achat.",
     commonProblems: [
       {
+        slug: "ecran-noir",
         name: "Écran noir (mais le son fonctionne)",
         description:
           "Rétroéclairage LED défaillant, carte T-Con en panne ou nappe de connexion défectueuse.",
@@ -435,6 +461,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "100 à 350 €",
       },
       {
+        slug: "pixels-morts-lignes",
         name: "Pixels morts ou lignes sur l'écran",
         description:
           "Dalle LCD/OLED endommagée ou carte de traitement vidéo défectueuse.",
@@ -442,6 +469,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "150 à 500 €",
       },
       {
+        slug: "pas-de-son",
         name: "Pas de son",
         description:
           "Haut-parleurs défectueux, carte son en panne ou problème de connectique HDMI.",
@@ -449,6 +477,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "ne-sallume-plus",
         name: "Ne s'allume plus",
         description:
           "Alimentation défectueuse, condensateurs gonflés ou carte mère en panne.",
@@ -493,6 +522,7 @@ export const appliances: Appliance[] = [
       "Un ordinateur portable en panne peut impacter votre travail et votre quotidien. La garantie légale de conformité vous protège pendant 2 ans, en plus de la garantie commerciale éventuelle du fabricant.",
     commonProblems: [
       {
+        slug: "batterie-ne-tient-plus",
         name: "La batterie ne tient plus",
         description:
           "Batterie en fin de vie prématurée ou problème de charge.",
@@ -500,6 +530,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "60 à 200 €",
       },
       {
+        slug: "ecran-defaillant",
         name: "Écran défaillant",
         description:
           "Dalle fissurée, pixels morts, rétroéclairage défectueux ou charnière cassée.",
@@ -507,6 +538,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "100 à 400 €",
       },
       {
+        slug: "surchauffe-arrets",
         name: "Surchauffe et arrêts inopinés",
         description:
           "Ventilateur encrassé, pâte thermique sèche ou composants défectueux.",
@@ -514,6 +546,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 150 €",
       },
       {
+        slug: "clavier-touchpad-panne",
         name: "Clavier ou touchpad ne fonctionne plus",
         description:
           "Nappe de connexion défectueuse, liquide renversé ou usure prématurée.",
@@ -559,6 +592,7 @@ export const appliances: Appliance[] = [
       "Un smartphone en panne, c'est devenu presque aussi urgent qu'une panne de voiture. Avant de courir en acheter un nouveau, vérifiez vos droits : la garantie légale de 2 ans couvre de nombreux défauts.",
     commonProblems: [
       {
+        slug: "batterie-se-degrade",
         name: "Batterie qui se dégrade trop vite",
         description:
           "Capacité réduite prématurément, gonflement de batterie ou problème de charge.",
@@ -566,6 +600,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 150 €",
       },
       {
+        slug: "ecran-ne-repond-plus",
         name: "Écran qui ne répond plus ou affiche des artefacts",
         description:
           "Dalle endommagée, nappe de connexion défectueuse ou problème tactile.",
@@ -573,6 +608,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "80 à 350 €",
       },
       {
+        slug: "ralentissements-bugs",
         name: "Ralentissements et bugs",
         description:
           "Mémoire saturée, processeur défaillant ou problème logiciel systémique.",
@@ -580,6 +616,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "0 à 100 €",
       },
       {
+        slug: "appareil-photo-defaillant",
         name: "Appareil photo défaillant",
         description:
           "Module caméra en panne, autofocus défectueux ou traitement d'image défaillant.",
@@ -624,6 +661,7 @@ export const appliances: Appliance[] = [
       "Une machine à café en panne, c'est le début de journée compromis. Que ce soit une machine à capsules, un expresso broyeur ou une cafetière classique, la garantie légale de 2 ans vous protège.",
     commonProblems: [
       {
+        slug: "ne-coule-plus",
         name: "Ne coule plus ou coule mal",
         description:
           "Circuit d'eau entartré, pompe défectueuse ou bloc infuseur bloqué.",
@@ -631,6 +669,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "30 à 150 €",
       },
       {
+        slug: "fuite-eau",
         name: "Fuite d'eau",
         description:
           "Joint usé, réservoir fissuré ou raccord interne desserré.",
@@ -638,6 +677,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "20 à 100 €",
       },
       {
+        slug: "ne-sallume-plus",
         name: "Ne s'allume plus",
         description:
           "Carte électronique en panne, interrupteur défectueux ou problème d'alimentation.",
@@ -645,6 +685,7 @@ export const appliances: Appliance[] = [
         estimatedRepairCost: "50 à 200 €",
       },
       {
+        slug: "cafe-froid",
         name: "Café froid ou tiède",
         description:
           "Résistance de chauffe défectueuse, thermostat en panne ou entartrage sévère.",
@@ -684,4 +725,15 @@ export function getApplianceBySlug(slug: string): Appliance | undefined {
 
 export function getAllApplianceSlugs(): string[] {
   return appliances.map((a) => a.slug);
+}
+
+export function getProblemBySlug(applianceSlug: string, problemSlug: string): CommonProblem | undefined {
+  const appliance = getApplianceBySlug(applianceSlug);
+  return appliance?.commonProblems.find((p) => p.slug === problemSlug);
+}
+
+export function getAllProblemSlugs(): { slug: string; problemSlug: string }[] {
+  return appliances.flatMap((a) =>
+    a.commonProblems.map((p) => ({ slug: a.slug, problemSlug: p.slug }))
+  );
 }

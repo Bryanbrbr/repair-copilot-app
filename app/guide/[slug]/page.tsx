@@ -125,9 +125,10 @@ export default async function GuideAppliancePage({
             </h2>
             <div className="space-y-4">
               {appliance.commonProblems.map((problem) => (
-                <div
-                  key={problem.name}
-                  className="bg-white rounded-xl border border-[var(--color-border)] p-5"
+                <Link
+                  key={problem.slug}
+                  href={`/guide/${appliance.slug}/${problem.slug}`}
+                  className="bg-white rounded-xl border border-[var(--color-border)] p-5 block hover:border-[var(--color-primary-light)] hover:shadow-md transition-all"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -137,6 +138,9 @@ export default async function GuideAppliancePage({
                       <p className="text-sm text-[var(--color-text-light)] leading-relaxed">
                         {problem.description}
                       </p>
+                      <span className="text-sm text-[var(--color-primary)] font-medium mt-3 inline-block">
+                        Voir le diagnostic complet →
+                      </span>
                     </div>
                     <div className="flex-shrink-0 text-right">
                       <span
@@ -155,7 +159,7 @@ export default async function GuideAppliancePage({
                       </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
