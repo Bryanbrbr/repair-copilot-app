@@ -717,6 +717,438 @@ export const appliances: Appliance[] = [
       },
     ],
   },
+  {
+    slug: "panne-congelateur-garantie",
+    name: "Congélateur",
+    icon: "🧊",
+    averageLifespan: "10 à 15 ans",
+    seoTitle:
+      "Congélateur en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre congélateur ne congèle plus, givre ou fait du bruit ? Vérifiez vos droits de garantie légale et générez un mail de réclamation gratuit.",
+    introduction:
+      "Un congélateur en panne, c'est le risque de perdre des semaines de courses et de plats préparés. Avant de tout jeter, vérifiez vos droits : la garantie légale de conformité de 2 ans peut couvrir la réparation ou le remplacement de votre appareil.",
+    commonProblems: [
+      {
+        slug: "ne-congele-plus",
+        name: "Ne congèle plus",
+        description:
+          "Compresseur défaillant, fuite de gaz réfrigérant ou thermostat en panne empêchant l'appareil d'atteindre la température requise.",
+        selfFixable: false,
+        estimatedRepairCost: "150 à 400 €",
+      },
+      {
+        slug: "givre-excessif",
+        name: "Givre excessif",
+        description:
+          "Joint de porte usé, sonde de dégivrage défectueuse ou système No Frost en panne provoquant une accumulation anormale de givre.",
+        selfFixable: true,
+        estimatedRepairCost: "40 à 180 €",
+      },
+      {
+        slug: "fait-du-bruit",
+        name: "Fait du bruit",
+        description:
+          "Ventilateur obstrué par le givre, compresseur vieillissant ou appareil mal nivelé sur le sol.",
+        selfFixable: true,
+        estimatedRepairCost: "50 à 200 €",
+      },
+      {
+        slug: "fuite-eau",
+        name: "Fuite d'eau",
+        description:
+          "Bac de dégivrage fissuré, tuyau d'évacuation bouché ou joint de porte défectueux laissant entrer l'air chaud.",
+        selfFixable: true,
+        estimatedRepairCost: "30 à 120 €",
+      },
+    ],
+    repairTips: [
+      "Vérifiez que le thermostat est bien réglé (entre -18°C et -24°C selon les recommandations du fabricant).",
+      "Dégivrez manuellement l'appareil si le givre dépasse 3 mm d'épaisseur pour maintenir son efficacité.",
+      "Assurez-vous que le congélateur est éloigné de toute source de chaleur et que l'air circule librement à l'arrière.",
+      "Contrôlez l'étanchéité du joint de porte en plaçant une feuille de papier : si elle glisse, le joint est à remplacer.",
+    ],
+    faq: [
+      {
+        question:
+          "Mon congélateur ne congèle plus après 14 mois, suis-je couvert ?",
+        answer:
+          "En principe, oui. La garantie légale de conformité couvre votre appareil pendant 2 ans à compter de l'achat (article L217-3 du Code de la consommation). Selon votre situation, le vendeur est tenu de réparer ou de remplacer votre congélateur sans frais.",
+      },
+      {
+        question:
+          "Le vendeur me dit que le givre est dû à un mauvais entretien, que faire ?",
+        answer:
+          "Si votre congélateur a moins de 2 ans, c'est au vendeur de prouver que le défaut résulte d'une mauvaise utilisation de votre part (article L217-7 du Code de la consommation). En principe, la charge de la preuve ne vous incombe pas durant cette période.",
+      },
+      {
+        question:
+          "Puis-je demander le remboursement plutôt que la réparation de mon congélateur ?",
+        answer:
+          "Selon l'article L217-8 du Code de la consommation, vous pouvez choisir entre la réparation et le remplacement. Le remboursement n'est envisageable que si ces deux solutions s'avèrent impossibles ou disproportionnées. En principe, le vendeur doit d'abord tenter la réparation ou le remplacement.",
+      },
+    ],
+  },
+  {
+    slug: "panne-micro-ondes-garantie",
+    name: "Micro-ondes",
+    icon: "📡",
+    averageLifespan: "8 à 10 ans",
+    seoTitle:
+      "Micro-ondes en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre micro-ondes ne chauffe plus, fait des étincelles ou le plateau ne tourne plus ? Vérifiez vos droits de garantie et générez un mail de réclamation gratuit.",
+    introduction:
+      "Le micro-ondes est devenu un indispensable de la cuisine. Quand il tombe en panne, cela perturbe l'organisation des repas. En tant que consommateur, vous disposez de la garantie légale de conformité de 2 ans pour faire valoir vos droits auprès du vendeur.",
+    commonProblems: [
+      {
+        slug: "ne-chauffe-plus",
+        name: "Ne chauffe plus",
+        description:
+          "Magnétron défectueux, fusible thermique grillé ou condensateur haute tension en panne empêchant la production de micro-ondes.",
+        selfFixable: false,
+        estimatedRepairCost: "80 à 250 €",
+      },
+      {
+        slug: "plateau-ne-tourne-plus",
+        name: "Le plateau ne tourne plus",
+        description:
+          "Moteur d'entraînement en panne, coupleur cassé ou guide rouleau endommagé bloquant la rotation.",
+        selfFixable: true,
+        estimatedRepairCost: "20 à 80 €",
+      },
+      {
+        slug: "etincelles-interieur",
+        name: "Étincelles à l'intérieur",
+        description:
+          "Plaque mica abîmée, paroi intérieure endommagée ou résidu alimentaire carbonisé provoquant des arcs électriques.",
+        selfFixable: true,
+        estimatedRepairCost: "10 à 60 €",
+      },
+      {
+        slug: "porte-ne-ferme-plus",
+        name: "La porte ne ferme plus",
+        description:
+          "Loquet de sécurité cassé, charnière usée ou micro-interrupteur de porte défectueux empêchant le démarrage.",
+        selfFixable: false,
+        estimatedRepairCost: "30 à 120 €",
+      },
+    ],
+    repairTips: [
+      "Nettoyez l'intérieur après chaque utilisation pour éviter les résidus alimentaires carbonisés qui peuvent causer des étincelles.",
+      "Vérifiez l'état de la plaque mica (petite plaque cartonnée sur la paroi) : si elle est brûlée ou tachée, elle doit être remplacée.",
+      "Ne faites jamais fonctionner un micro-ondes à vide, cela peut endommager le magnétron de façon irréversible.",
+      "Si le plateau ne tourne plus, vérifiez d'abord que le guide rouleau est bien en place et que rien ne bloque la rotation.",
+    ],
+    faq: [
+      {
+        question:
+          "Mon micro-ondes ne chauffe plus après 10 mois, ai-je des droits ?",
+        answer:
+          "En principe, oui. La garantie légale de conformité vous couvre pendant 2 ans à compter de la date d'achat (article L217-3 du Code de la consommation). Selon votre situation, le vendeur doit prendre en charge la réparation ou le remplacement de l'appareil sans frais.",
+      },
+      {
+        question:
+          "Le vendeur me facture des frais de déplacement pour le diagnostic, est-ce légal ?",
+        answer:
+          "En principe, non. Dans le cadre de la garantie légale de conformité, la réparation doit être effectuée sans aucun frais pour le consommateur, y compris les frais de déplacement et de diagnostic (article L217-11 du Code de la consommation).",
+      },
+      {
+        question:
+          "Mon micro-ondes fait des étincelles, est-ce dangereux et couvert par la garantie ?",
+        answer:
+          "Des étincelles peuvent indiquer un défaut de la plaque mica ou de la paroi intérieure. Si l'appareil a moins de 2 ans, cela constitue en principe un défaut de conformité couvert par la garantie légale. Selon votre situation, cessez d'utiliser l'appareil et contactez le vendeur pour faire jouer vos droits (article L217-8).",
+      },
+    ],
+  },
+  {
+    slug: "panne-aspirateur-robot-garantie",
+    name: "Aspirateur robot",
+    icon: "🤖",
+    averageLifespan: "4 à 7 ans",
+    seoTitle:
+      "Aspirateur robot en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre aspirateur robot ne se charge plus, ne retourne pas à sa base ou a des capteurs défaillants ? Vérifiez votre garantie et générez un mail de réclamation.",
+    introduction:
+      "L'aspirateur robot est devenu un allié précieux du quotidien. Quand il tombe en panne — batterie, capteurs, brosses — la déception est d'autant plus grande que l'investissement est souvent conséquent. La garantie légale de conformité de 2 ans vous protège contre les défauts qui apparaissent après l'achat.",
+    commonProblems: [
+      {
+        slug: "ne-se-charge-plus",
+        name: "Ne se charge plus",
+        description:
+          "Batterie en fin de vie prématurée, chargeur ou base de charge défectueux, ou connecteurs de charge encrassés.",
+        selfFixable: true,
+        estimatedRepairCost: "40 à 150 €",
+      },
+      {
+        slug: "ne-retourne-pas-base",
+        name: "Ne retourne pas à sa base",
+        description:
+          "Capteurs infrarouges sales ou défectueux, signal de la base perturbé ou problème du module de navigation.",
+        selfFixable: true,
+        estimatedRepairCost: "30 à 120 €",
+      },
+      {
+        slug: "brosse-bloquee",
+        name: "Brosse bloquée",
+        description:
+          "Cheveux et débris enroulés autour de la brosse, moteur de brosse défaillant ou mécanisme d'entraînement cassé.",
+        selfFixable: true,
+        estimatedRepairCost: "15 à 80 €",
+      },
+      {
+        slug: "capteurs-defaillants",
+        name: "Capteurs défaillants",
+        description:
+          "Capteurs de vide, de mur ou lidar encrassés ou en panne, entraînant des collisions répétées ou un parcours incohérent.",
+        selfFixable: false,
+        estimatedRepairCost: "60 à 200 €",
+      },
+    ],
+    repairTips: [
+      "Nettoyez les capteurs (anti-chute, lidar, infrarouges) avec un chiffon doux et sec au moins une fois par semaine.",
+      "Retirez régulièrement les cheveux et fils enroulés autour de la brosse principale et des brosses latérales.",
+      "Vérifiez que les contacts de charge sur le robot et la base sont propres et exempts de poussière.",
+      "Redémarrez le robot et l'application associée en cas de comportement erratique avant de conclure à une panne matérielle.",
+    ],
+    faq: [
+      {
+        question:
+          "Mon aspirateur robot ne se charge plus après 8 mois, est-ce couvert ?",
+        answer:
+          "En principe, oui. La batterie et le système de charge font partie intégrante du produit et sont couverts par la garantie légale de conformité de 2 ans (article L217-3 du Code de la consommation). Selon votre situation, si la panne n'est pas due à une mauvaise utilisation, le vendeur doit prendre en charge la réparation.",
+      },
+      {
+        question:
+          "Le vendeur dit que les brosses sont des consommables non couverts, a-t-il raison ?",
+        answer:
+          "Les brosses d'usure peuvent effectivement être considérées comme des consommables. Cependant, si le moteur de brosse ou le mécanisme d'entraînement est en panne, il s'agit d'un défaut de conformité couvert par la garantie légale (article L217-7). En principe, l'usure anormalement rapide d'une pièce peut aussi constituer un défaut.",
+      },
+      {
+        question:
+          "Les capteurs de mon robot sont défaillants, puis-je exiger un remplacement ?",
+        answer:
+          "Selon l'article L217-8 du Code de la consommation, vous avez le choix entre la réparation et le remplacement. En principe, si les capteurs défaillants rendent l'appareil impropre à son usage, le vendeur doit proposer une solution sans frais dans un délai raisonnable.",
+      },
+    ],
+  },
+  {
+    slug: "panne-tablette-garantie",
+    name: "Tablette",
+    icon: "📱",
+    averageLifespan: "3 à 5 ans",
+    seoTitle:
+      "Tablette en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre tablette ne s'allume plus, l'écran ne répond plus ou la batterie lâche ? Vérifiez votre garantie légale et générez un mail de réclamation gratuit.",
+    introduction:
+      "La tablette est devenue un outil du quotidien pour le travail, les études et les loisirs. Quand elle tombe en panne prématurément, cela peut sérieusement impacter votre routine. La garantie légale de conformité de 2 ans vous permet de faire valoir vos droits auprès du vendeur.",
+    commonProblems: [
+      {
+        slug: "ecran-ne-repond-plus",
+        name: "L'écran ne répond plus",
+        description:
+          "Dalle tactile défectueuse, nappe de connexion endommagée ou dysfonctionnement du numériseur empêchant toute interaction.",
+        selfFixable: false,
+        estimatedRepairCost: "80 à 300 €",
+      },
+      {
+        slug: "batterie-se-degrade",
+        name: "Batterie qui se dégrade",
+        description:
+          "Capacité réduite prématurément, gonflement de batterie ou cycle de charge anormalement court par rapport aux spécifications.",
+        selfFixable: false,
+        estimatedRepairCost: "50 à 150 €",
+      },
+      {
+        slug: "ne-sallume-plus",
+        name: "Ne s'allume plus",
+        description:
+          "Carte mère défectueuse, connecteur de charge endommagé ou batterie complètement déchargée et incapable de reprendre une charge.",
+        selfFixable: false,
+        estimatedRepairCost: "100 à 350 €",
+      },
+      {
+        slug: "ralentissements-bugs",
+        name: "Ralentissements et bugs",
+        description:
+          "Mémoire vive insuffisante suite à des mises à jour, stockage saturé ou composants internes présentant des défaillances intermittentes.",
+        selfFixable: true,
+        estimatedRepairCost: "0 à 100 €",
+      },
+    ],
+    repairTips: [
+      "Effectuez un redémarrage forcé (bouton power + volume) avant de conclure à une panne matérielle.",
+      "Libérez régulièrement de l'espace de stockage pour éviter les ralentissements liés à une mémoire saturée.",
+      "Utilisez exclusivement le chargeur d'origine ou un chargeur certifié compatible pour préserver la batterie.",
+      "Vérifiez si une mise à jour système est disponible, car certains bugs sont corrigés par des correctifs logiciels.",
+    ],
+    faq: [
+      {
+        question:
+          "L'écran tactile de ma tablette ne répond plus après 11 mois, que faire ?",
+        answer:
+          "En principe, il s'agit d'un défaut de conformité couvert par la garantie légale de 2 ans (article L217-3 du Code de la consommation). Selon votre situation, contactez le vendeur (pas le fabricant) pour demander la réparation ou le remplacement sans frais.",
+      },
+      {
+        question:
+          "Ma tablette ralentit fortement après une mise à jour, est-ce un défaut de conformité ?",
+        answer:
+          "En principe, si une mise à jour du fabricant provoque des ralentissements rendant l'appareil impropre à son usage normal, cela peut être considéré comme un défaut de conformité (article L217-7 du Code de la consommation). Selon votre situation, le logiciel fait partie intégrante du produit vendu.",
+      },
+      {
+        question:
+          "La batterie de ma tablette ne tient plus que 2 heures après 18 mois, ai-je des recours ?",
+        answer:
+          "Selon votre situation, si la batterie tenait initialement bien plus longtemps, cette dégradation prématurée peut constituer un défaut de conformité. En principe, l'article L217-8 du Code de la consommation vous permet de demander au vendeur la réparation ou le remplacement dans le cadre de la garantie légale de 2 ans.",
+      },
+    ],
+  },
+  {
+    slug: "panne-console-jeux-garantie",
+    name: "Console de jeux",
+    icon: "🎮",
+    averageLifespan: "5 à 8 ans",
+    seoTitle:
+      "Console de jeux en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre console de jeux ne s'allume plus, surchauffe ou le lecteur de disque est en panne ? Vérifiez votre garantie légale et générez un mail de réclamation.",
+    introduction:
+      "Qu'il s'agisse d'une PlayStation, Xbox ou Nintendo Switch, une console de jeux en panne est une source de grande frustration. Avant de vous résigner à un achat coûteux, sachez que la garantie légale de conformité de 2 ans vous offre des droits solides en tant que consommateur.",
+    commonProblems: [
+      {
+        slug: "ne-sallume-plus",
+        name: "Ne s'allume plus",
+        description:
+          "Bloc d'alimentation défectueux, carte mère en panne ou bouton power défaillant empêchant tout démarrage de la console.",
+        selfFixable: false,
+        estimatedRepairCost: "100 à 300 €",
+      },
+      {
+        slug: "surchauffe-arrets",
+        name: "Surchauffe et arrêts inopinés",
+        description:
+          "Ventilateur encrassé, pâte thermique sèche ou dissipateur thermique mal fixé provoquant des coupures de protection.",
+        selfFixable: true,
+        estimatedRepairCost: "30 à 120 €",
+      },
+      {
+        slug: "lecteur-disque-defaillant",
+        name: "Lecteur de disque défaillant",
+        description:
+          "Lentille laser usée, moteur du lecteur en panne ou mécanisme d'insertion bloqué empêchant la lecture des jeux physiques.",
+        selfFixable: false,
+        estimatedRepairCost: "60 à 200 €",
+      },
+      {
+        slug: "probleme-manette",
+        name: "Problème de manette",
+        description:
+          "Drift du joystick, boutons non réactifs, batterie de manette défaillante ou perte de connexion Bluetooth récurrente.",
+        selfFixable: true,
+        estimatedRepairCost: "20 à 80 €",
+      },
+    ],
+    repairTips: [
+      "Assurez-vous que la console est bien ventilée et éloignée de toute source de chaleur pour prévenir la surchauffe.",
+      "Nettoyez régulièrement les aérations et le ventilateur à l'aide d'une bombe à air comprimé pour éviter l'accumulation de poussière.",
+      "Vérifiez que le câble d'alimentation est en bon état et branché sur une prise fonctionnelle avant de conclure à une panne.",
+      "Pour le drift de manette, essayez une mise à jour du firmware de la manette avant d'envisager un remplacement.",
+    ],
+    faq: [
+      {
+        question:
+          "Ma console ne s'allume plus après 15 mois, suis-je couvert par la garantie ?",
+        answer:
+          "En principe, oui. La garantie légale de conformité vous couvre pendant 2 ans à compter de la date d'achat (article L217-3 du Code de la consommation). Selon votre situation, le vendeur est tenu de réparer ou de remplacer la console sans frais.",
+      },
+      {
+        question:
+          "Le drift de ma manette est-il couvert par la garantie légale ?",
+        answer:
+          "En principe, le drift du joystick (déviation involontaire) constitue un défaut de conformité si la manette a été vendue avec la console. Selon votre situation, l'article L217-7 du Code de la consommation prévoit que le vendeur est responsable des défauts apparaissant dans les 2 ans suivant l'achat.",
+      },
+      {
+        question:
+          "Le vendeur refuse la garantie car j'ai ouvert la console pour la nettoyer, est-ce justifié ?",
+        answer:
+          "Selon l'article L217-8 du Code de la consommation, le vendeur ne peut refuser la garantie que s'il prouve que le défaut résulte de votre intervention. En principe, un simple nettoyage n'est pas la cause d'une panne matérielle. Selon votre situation, insistez auprès du vendeur et demandez-lui de prouver le lien entre votre geste et la panne.",
+      },
+    ],
+  },
+  {
+    slug: "panne-montre-connectee-garantie",
+    name: "Montre connectée",
+    icon: "⌚",
+    averageLifespan: "3 à 5 ans",
+    seoTitle:
+      "Montre connectée en panne sous garantie — Vos droits et recours | Repair Copilot",
+    seoDescription:
+      "Votre montre connectée ne tient plus la charge, l'écran ne répond plus ou les capteurs sont défaillants ? Vérifiez votre garantie et générez un mail de réclamation.",
+    introduction:
+      "Les montres connectées — Apple Watch, Samsung Galaxy Watch, Garmin ou autres — sont des compagnons du quotidien pour le sport et la santé. Quand elles tombent en panne, le coût de remplacement peut être élevé. La garantie légale de conformité de 2 ans est là pour protéger vos droits de consommateur.",
+    commonProblems: [
+      {
+        slug: "batterie-ne-tient-plus",
+        name: "Batterie qui ne tient plus",
+        description:
+          "Autonomie réduite de manière prématurée, batterie qui ne dépasse plus quelques heures alors qu'elle tenait plusieurs jours initialement.",
+        selfFixable: false,
+        estimatedRepairCost: "50 à 150 €",
+      },
+      {
+        slug: "ecran-ne-repond-plus",
+        name: "Écran qui ne répond plus",
+        description:
+          "Dalle tactile défaillante, affichage figé, pixels morts ou écran qui reste noir malgré la charge de l'appareil.",
+        selfFixable: false,
+        estimatedRepairCost: "80 à 250 €",
+      },
+      {
+        slug: "capteurs-defaillants",
+        name: "Capteurs défaillants",
+        description:
+          "Capteur cardiaque, oxymètre, accéléromètre ou GPS fournissant des données erronées ou ne fonctionnant plus du tout.",
+        selfFixable: false,
+        estimatedRepairCost: "60 à 200 €",
+      },
+      {
+        slug: "ne-se-connecte-plus",
+        name: "Ne se connecte plus",
+        description:
+          "Bluetooth ou Wi-Fi défaillant empêchant la synchronisation avec le smartphone, perte de connexion récurrente ou appairage impossible.",
+        selfFixable: true,
+        estimatedRepairCost: "40 à 150 €",
+      },
+    ],
+    repairTips: [
+      "Redémarrez la montre et réinitialisez la connexion Bluetooth avant de conclure à une panne matérielle.",
+      "Vérifiez que le logiciel de la montre est à jour, car certaines mises à jour corrigent des problèmes de capteurs ou de connectivité.",
+      "Nettoyez le capteur cardiaque au dos de la montre avec un chiffon doux pour assurer des mesures fiables.",
+      "Évitez d'exposer la montre à des températures extrêmes qui peuvent dégrader prématurément la batterie.",
+    ],
+    faq: [
+      {
+        question:
+          "La batterie de ma montre connectée ne tient plus qu'une demi-journée après 9 mois, que faire ?",
+        answer:
+          "En principe, si l'autonomie annoncée était de plusieurs jours et qu'elle ne tient plus qu'une demi-journée après 9 mois, il s'agit d'un défaut de conformité couvert par la garantie légale de 2 ans (article L217-3 du Code de la consommation). Selon votre situation, contactez le vendeur pour faire valoir vos droits.",
+      },
+      {
+        question:
+          "Le capteur cardiaque donne des mesures erronées, est-ce couvert ?",
+        answer:
+          "En principe, oui. Les capteurs font partie intégrante des fonctionnalités promises du produit. S'ils fournissent des données erronées, cela constitue un défaut de conformité au sens de l'article L217-7 du Code de la consommation. Selon votre situation, le vendeur doit remédier au problème sans frais.",
+      },
+      {
+        question:
+          "Le vendeur me dit que c'est un problème d'application et non de matériel, que faire ?",
+        answer:
+          "Selon l'article L217-8 du Code de la consommation, le logiciel embarqué et les fonctionnalités connectées font partie du produit vendu. En principe, si le dysfonctionnement empêche l'utilisation normale de la montre, le vendeur reste responsable, qu'il s'agisse d'un défaut matériel ou logiciel. Selon votre situation, insistez sur cette obligation légale.",
+      },
+    ],
+  },
 ];
 
 export function getApplianceBySlug(slug: string): Appliance | undefined {
