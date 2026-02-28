@@ -119,7 +119,7 @@ export default function HomePage() {
             tout le processus.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)]">
+            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
               <div className="text-4xl mb-4">⚖️</div>
               <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
                 Vos droits expliqués simplement
@@ -130,7 +130,7 @@ export default function HomePage() {
                 On vous explique tout, article par article.
               </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)]">
+            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
               <div className="text-4xl mb-4">✉️</div>
               <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
                 Mail professionnel en 30 secondes
@@ -140,7 +140,7 @@ export default function HomePage() {
                 copier et envoyer. Choisissez le ton : poli, standard ou ferme.
               </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)]">
+            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
               <div className="text-4xl mb-4">💰</div>
               <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
                 Gratuit, sans inscription
@@ -231,7 +231,7 @@ export default function HomePage() {
               <Link
                 key={appliance.slug}
                 href={`/guide/${appliance.slug}`}
-                className="flex flex-col items-center p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] hover:border-[var(--color-primary-light)] hover:shadow-md transition-all"
+                className="flex flex-col items-center p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover"
               >
                 <span className="text-3xl mb-2">{appliance.icon}</span>
                 <span className="text-sm font-medium text-[var(--color-text)] text-center">
@@ -253,11 +253,11 @@ export default function HomePage() {
             {homeFAQ.map((item) => (
               <details
                 key={item.question}
-                className="bg-white rounded-xl border border-[var(--color-border)] p-6 group"
+                className="bg-white rounded-xl border border-[var(--color-border)] p-6 group card-hover"
               >
                 <summary className="font-semibold text-[var(--color-text)] cursor-pointer list-none flex items-center justify-between">
                   {item.question}
-                  <span className="text-[var(--color-primary)] group-open:rotate-180 transition-transform ml-4 flex-shrink-0">
+                  <span className="text-[var(--color-primary)] faq-chevron ml-4 flex-shrink-0">
                     ▼
                   </span>
                 </summary>

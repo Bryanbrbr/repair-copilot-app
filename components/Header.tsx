@@ -37,6 +37,12 @@ export default function Header() {
               Guides par appareil
             </Link>
             <Link
+              href="/blog"
+              className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
               href="/generateur"
               className="bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white px-4 py-2 rounded-lg font-medium transition-colors"
             >
@@ -69,8 +75,8 @@ export default function Header() {
         </div>
 
         {/* Mobile navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-[var(--color-border)] mt-2 pt-4">
+        <div className={`md:hidden mobile-menu ${isMenuOpen ? "open" : ""}`}>
+          <div className="pb-4 border-t border-[var(--color-border)] mt-2 pt-4">
             <div className="flex flex-col gap-3">
               <Link
                 href="/"
@@ -94,6 +100,13 @@ export default function Header() {
                 Guides par appareil
               </Link>
               <Link
+                href="/blog"
+                className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <Link
                 href="/generateur"
                 className="bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white px-4 py-2 rounded-lg font-medium transition-colors text-center mt-2"
                 onClick={() => setIsMenuOpen(false)}
@@ -102,7 +115,7 @@ export default function Header() {
               </Link>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

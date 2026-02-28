@@ -41,7 +41,7 @@ export default function GuidesIndexPage() {
             <Link
               key={appliance.slug}
               href={`/guide/${appliance.slug}`}
-              className="group bg-white rounded-xl border border-[var(--color-border)] p-6 hover:border-[var(--color-primary-light)] hover:shadow-lg transition-all"
+              className="group bg-white rounded-xl border border-[var(--color-border)] p-6 card-hover"
             >
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-4xl">{appliance.icon}</span>

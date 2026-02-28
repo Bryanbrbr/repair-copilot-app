@@ -128,7 +128,7 @@ export default async function GuideAppliancePage({
                 <Link
                   key={problem.slug}
                   href={`/guide/${appliance.slug}/${problem.slug}`}
-                  className="bg-white rounded-xl border border-[var(--color-border)] p-5 block hover:border-[var(--color-primary-light)] hover:shadow-md transition-all"
+                  className="bg-white rounded-xl border border-[var(--color-border)] p-5 block card-hover"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -243,11 +243,11 @@ export default async function GuideAppliancePage({
               {appliance.faq.map((item, index) => (
                 <details
                   key={index}
-                  className="bg-white rounded-xl border border-[var(--color-border)] p-5 group"
+                  className="bg-white rounded-xl border border-[var(--color-border)] p-5 group card-hover"
                 >
                   <summary className="font-semibold text-[var(--color-text)] cursor-pointer list-none flex items-center justify-between gap-4">
                     <span>{item.question}</span>
-                    <span className="text-[var(--color-primary)] group-open:rotate-180 transition-transform flex-shrink-0">
+                    <span className="text-[var(--color-primary)] faq-chevron flex-shrink-0">
                       ▼
                     </span>
                   </summary>
@@ -289,7 +289,7 @@ export default async function GuideAppliancePage({
                   <Link
                     key={a.slug}
                     href={`/guide/${a.slug}`}
-                    className="flex items-center gap-2 p-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] hover:border-[var(--color-primary-light)] transition-colors text-sm"
+                    className="flex items-center gap-2 p-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] card-hover text-sm"
                   >
                     <span>{a.icon}</span>
                     <span className="text-[var(--color-text)]">{a.name}</span>
