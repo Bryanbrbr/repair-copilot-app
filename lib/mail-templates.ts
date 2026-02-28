@@ -11,6 +11,10 @@ export interface MailFormData {
   hasReceipt: boolean;
   customerName: string;
   tone: MailTone;
+  // Champs optionnels
+  modelNumber?: string;
+  serialNumber?: string;
+  purchaseAmount?: string;
 }
 
 export interface GeneratedMail {
@@ -41,6 +45,12 @@ export function generateReclamationMail(data: MailFormData): GeneratedMail {
   const purchaseDate = new Date(data.purchaseDate);
   const formattedDate = formatDateFR(purchaseDate);
   const storeType = getStoreType(data.store);
+  const modelInfo = data.modelNumber
+    ? ` (modèle ${data.modelNumber}${data.serialNumber ? `, n° de série ${data.serialNumber}` : ""})`
+    : "";
+  const amountInfo = data.purchaseAmount
+    ? `\nCet appareil a été acheté au prix de ${data.purchaseAmount} €.`
+    : "";
 
   const subject = `Réclamation au titre de la garantie légale de conformité — ${data.applianceType} ${data.brand}`;
 
@@ -50,7 +60,7 @@ export function generateReclamationMail(data: MailFormData): GeneratedMail {
     case "poli":
       body = `Madame, Monsieur,
 
-Je me permets de vous contacter au sujet d'un ${data.applianceType.toLowerCase()} de marque ${data.brand} que j'ai acheté dans votre ${storeType} le ${formattedDate}.
+Je me permets de vous contacter au sujet d'un ${data.applianceType.toLowerCase()} de marque ${data.brand}${modelInfo} que j'ai acheté dans votre ${storeType} le ${formattedDate}.${amountInfo}
 
 Malheureusement, cet appareil présente depuis peu le dysfonctionnement suivant :
 ${data.problemDescription}
@@ -71,7 +81,7 @@ ${data.customerName}`;
     case "ferme":
       body = `Madame, Monsieur,
 
-Par la présente, je vous informe que le ${data.applianceType.toLowerCase()} de marque ${data.brand}, acheté dans votre ${storeType} le ${formattedDate}, présente un défaut de conformité.
+Par la présente, je vous informe que le ${data.applianceType.toLowerCase()} de marque ${data.brand}${modelInfo}, acheté dans votre ${storeType} le ${formattedDate}, présente un défaut de conformité.${amountInfo}
 
 Le dysfonctionnement constaté est le suivant :
 ${data.problemDescription}
@@ -103,7 +113,7 @@ ${data.customerName}`;
     default: // standard
       body = `Madame, Monsieur,
 
-Je me permets de vous contacter au sujet d'un ${data.applianceType.toLowerCase()} de marque ${data.brand} que j'ai acheté dans votre ${storeType} le ${formattedDate}.
+Je me permets de vous contacter au sujet d'un ${data.applianceType.toLowerCase()} de marque ${data.brand}${modelInfo} que j'ai acheté dans votre ${storeType} le ${formattedDate}.${amountInfo}
 
 Depuis peu, cet appareil présente le dysfonctionnement suivant :
 ${data.problemDescription}
@@ -135,12 +145,15 @@ ${data.customerName}`;
 export function generateRelanceMail(data: MailFormData): GeneratedMail {
   const purchaseDate = new Date(data.purchaseDate);
   const formattedDate = formatDateFR(purchaseDate);
+  const modelInfo = data.modelNumber
+    ? ` (modèle ${data.modelNumber}${data.serialNumber ? `, n° de série ${data.serialNumber}` : ""})`
+    : "";
 
   const subject = `RELANCE — Réclamation garantie légale de conformité — ${data.applianceType} ${data.brand}`;
 
   const body = `Madame, Monsieur,
 
-Je fais suite à mon précédent courrier concernant mon ${data.applianceType.toLowerCase()} de marque ${data.brand}, acheté dans votre ${getStoreType(data.store)} le ${formattedDate}, et qui présente un défaut de conformité.
+Je fais suite à mon précédent courrier concernant mon ${data.applianceType.toLowerCase()} de marque ${data.brand}${modelInfo}, acheté dans votre ${getStoreType(data.store)} le ${formattedDate}, et qui présente un défaut de conformité.
 
 À ce jour, je n'ai reçu aucune réponse de votre part malgré ma demande initiale.
 

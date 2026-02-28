@@ -11,63 +11,57 @@ export default function MailPreview({ mail }: MailPreviewProps) {
   const [copied, setCopied] = useState(false);
   const [copiedSubject, setCopiedSubject] = useState(false);
 
-  const handleCopyBody = async () => {
+  const copyToClipboard = async (text: string) => {
     try {
-      await navigator.clipboard.writeText(mail.body);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(text);
     } catch {
-      // Fallback pour les navigateurs qui ne supportent pas l'API Clipboard
       const textarea = document.createElement("textarea");
-      textarea.value = mail.body;
+      textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
       document.execCommand("copy");
       document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
     }
   };
 
+  const handleCopyBody = async () => {
+    await copyToClipboard(mail.body);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const handleCopySubject = async () => {
-    try {
-      await navigator.clipboard.writeText(mail.subject);
-      setCopiedSubject(true);
-      setTimeout(() => setCopiedSubject(false), 2000);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = mail.subject;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setCopiedSubject(true);
-      setTimeout(() => setCopiedSubject(false), 2000);
-    }
+    await copyToClipboard(mail.subject);
+    setCopiedSubject(true);
+    setTimeout(() => setCopiedSubject(false), 2000);
   };
 
   const handleCopyAll = async () => {
     const fullText = `Objet : ${mail.subject}\n\n${mail.body}`;
-    try {
-      await navigator.clipboard.writeText(fullText);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = fullText;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    await copyToClipboard(fullText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadTxt = () => {
+    const fullText = `Objet : ${mail.subject}\n\n${mail.body}`;
+    const blob = new Blob([fullText], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${mail.type}-${new Date().toISOString().split("T")[0]}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
     <div className="bg-white rounded-xl border border-[var(--color-border)] shadow-sm overflow-hidden">
       {/* Header */}
-      <div className="bg-[var(--color-primary)] px-6 py-4">
+      <div className="bg-[var(--color-primary)] px-6 py-4 no-print">
         <div className="flex items-center justify-between">
           <h3 className="text-white font-semibold text-lg flex items-center gap-2">
             ✉️{" "}
@@ -79,7 +73,7 @@ export default function MailPreview({ mail }: MailPreviewProps) {
             onClick={handleCopyAll}
             className="bg-white/20 hover:bg-white/30 text-white text-sm px-4 py-2 rounded-lg transition-colors font-medium"
           >
-            {copied ? "✓ Copié !" : "📋 Tout copier"}
+            {copied ? "✓ Copié !" : "Tout copier"}
           </button>
         </div>
       </div>
@@ -97,46 +91,63 @@ export default function MailPreview({ mail }: MailPreviewProps) {
           </div>
           <button
             onClick={handleCopySubject}
-            className="text-xs text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] font-medium flex-shrink-0"
+            className="text-xs text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] font-medium flex-shrink-0 no-print"
           >
             {copiedSubject ? "✓ Copié" : "Copier l'objet"}
           </button>
         </div>
       </div>
 
-      {/* Corps du mail */}
-      <div className="px-6 py-6">
-        <pre className="whitespace-pre-wrap font-sans text-sm text-[var(--color-text)] leading-relaxed">
-          {mail.body}
-        </pre>
+      {/* Corps du mail — style "feuille de papier" */}
+      <div className="px-6 py-6 print-letter">
+        <div className="bg-white border border-gray-100 rounded-lg shadow-inner p-6 sm:p-8">
+          <pre className="whitespace-pre-wrap font-sans text-sm text-[var(--color-text)] leading-relaxed">
+            {mail.body}
+          </pre>
+        </div>
       </div>
 
-      {/* Actions */}
-      <div className="px-6 py-4 bg-gray-50 border-t border-[var(--color-border)] flex flex-col gap-3">
+      {/* Actions principales */}
+      <div className="px-6 py-5 bg-gray-50 border-t border-[var(--color-border)] no-print">
+        {/* Bouton principal */}
         <button
           onClick={handleCopyAll}
-          className="w-full bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white font-semibold py-4 px-6 rounded-xl transition-colors text-center text-lg shadow-lg hover:shadow-xl"
+          className="w-full bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white font-semibold py-4 px-6 rounded-xl transition-all text-center text-lg shadow-lg hover:shadow-xl mb-3"
         >
           {copied ? "✓ Lettre copiée !" : "📋 Copier la lettre"}
         </button>
-        <div className="flex gap-3">
+
+        {/* Boutons secondaires — grille */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           <button
             onClick={handleCopyBody}
-            className="flex-1 bg-gray-100 hover:bg-gray-200 text-[var(--color-text)] font-medium py-3 px-4 rounded-lg transition-colors text-center text-sm"
+            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
           >
-            {copied ? "✓ Copié" : "Copier le corps seul"}
+            {copied ? "✓ Copié" : "📄 Corps seul"}
           </button>
           <a
             href={`mailto:?subject=${encodeURIComponent(mail.subject)}&body=${encodeURIComponent(mail.body)}`}
-            className="flex-1 bg-gray-100 hover:bg-gray-200 text-[var(--color-text)] font-medium py-3 px-4 rounded-lg transition-colors text-center text-sm"
+            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
           >
-            📧 Ouvrir dans ma messagerie
+            📧 Messagerie
           </a>
+          <button
+            onClick={handleDownloadTxt}
+            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
+          >
+            📥 Télécharger .txt
+          </button>
+          <button
+            onClick={handlePrint}
+            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
+          >
+            🖨️ Imprimer / PDF
+          </button>
         </div>
       </div>
 
       {/* Conseil */}
-      <div className="px-6 py-4 bg-blue-50 border-t border-blue-100">
+      <div className="px-6 py-4 bg-blue-50 border-t border-blue-100 no-print">
         <p className="text-xs text-blue-700 leading-relaxed">
           <strong>💡 Conseil :</strong> Pour un maximum d&apos;efficacité,
           envoyez ce mail depuis une adresse email professionnelle ou sérieuse.

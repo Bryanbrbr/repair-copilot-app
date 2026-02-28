@@ -44,6 +44,9 @@ export default function MailGeneratorForm() {
     hasReceipt: true,
     customerName: "",
     tone: "standard",
+    modelNumber: "",
+    serialNumber: "",
+    purchaseAmount: "",
   });
 
   const [warrantyStatus, setWarrantyStatus] =
@@ -52,6 +55,7 @@ export default function MailGeneratorForm() {
   const [relanceMail, setRelanceMail] = useState<GeneratedMail | null>(null);
   const [showRelance, setShowRelance] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [stepKey, setStepKey] = useState(0); // Force re-render for animation
 
   const validateStep1 = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -81,6 +85,7 @@ export default function MailGeneratorForm() {
 
   const handleNextStep = () => {
     if (currentStep === 1 && validateStep1()) {
+      setStepKey((k) => k + 1);
       setCurrentStep(2);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (currentStep === 2 && validateStep2()) {
@@ -92,12 +97,14 @@ export default function MailGeneratorForm() {
       setGeneratedMail(reclamation);
       setRelanceMail(relance);
       setShowRelance(false);
+      setStepKey((k) => k + 1);
       setCurrentStep(3);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const handlePrevStep = () => {
+    setStepKey((k) => k + 1);
     if (currentStep === 2) setCurrentStep(1);
     else if (currentStep === 3) setCurrentStep(2);
     setErrors({});
@@ -134,12 +141,12 @@ export default function MailGeneratorForm() {
           <div key={step} className="flex-1 flex items-center">
             <div className="flex flex-col items-center flex-1">
               <div
-                className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
+                className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
                   step < currentStep
-                    ? "bg-[var(--color-secondary)] text-white"
+                    ? "bg-[var(--color-secondary)] text-white scale-100"
                     : step === currentStep
-                    ? "bg-[var(--color-primary)] text-white shadow-md"
-                    : "bg-gray-200 text-gray-500"
+                    ? "bg-[var(--color-primary)] text-white shadow-lg scale-110"
+                    : "bg-gray-200 text-gray-500 scale-100"
                 }`}
               >
                 {step < currentStep ? "✓" : step}
@@ -169,7 +176,7 @@ export default function MailGeneratorForm() {
 
       {/* Step 1 — Informations sur l'appareil */}
       {currentStep === 1 && (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] shadow-sm p-6 sm:p-8 space-y-6">
+        <div key={`step1-${stepKey}`} className="animate-fade-in bg-white rounded-xl border border-[var(--color-border)] shadow-sm p-6 sm:p-8 space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-[var(--color-text)] mb-1">
               {stepInfo[1].title}
@@ -264,6 +271,52 @@ export default function MailGeneratorForm() {
             </label>
           </div>
 
+          {/* Informations optionnelles */}
+          <details className="bg-[var(--color-bg)] rounded-xl border border-[var(--color-border)] p-4 group">
+            <summary className="font-medium text-sm text-[var(--color-text)] cursor-pointer list-none flex items-center justify-between">
+              <span>📋 Informations optionnelles (recommandé)</span>
+              <span className="text-[var(--color-primary)] faq-chevron flex-shrink-0 text-xs">▼</span>
+            </summary>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label htmlFor="modelNumber" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                  Numéro de modèle
+                </label>
+                <input
+                  type="text" id="modelNumber" name="modelNumber"
+                  value={formData.modelNumber || ""} onChange={handleChange}
+                  placeholder="Ex : WM14N200FF"
+                  className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
+                />
+              </div>
+              <div>
+                <label htmlFor="serialNumber" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                  Numéro de série
+                </label>
+                <input
+                  type="text" id="serialNumber" name="serialNumber"
+                  value={formData.serialNumber || ""} onChange={handleChange}
+                  placeholder="Visible sur l'étiquette"
+                  className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
+                />
+              </div>
+              <div>
+                <label htmlFor="purchaseAmount" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                  Prix d&apos;achat (€)
+                </label>
+                <input
+                  type="text" id="purchaseAmount" name="purchaseAmount"
+                  value={formData.purchaseAmount || ""} onChange={handleChange}
+                  placeholder="Ex : 499"
+                  className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
+                />
+              </div>
+            </div>
+            <p className="text-xs text-[var(--color-text-light)] mt-3">
+              Ces informations renforcent votre réclamation et facilitent le traitement par le vendeur.
+            </p>
+          </details>
+
           <button
             type="button" onClick={handleNextStep}
             disabled={!isStep1Complete}
@@ -280,7 +333,7 @@ export default function MailGeneratorForm() {
 
       {/* Step 2 — Description du problème + ton */}
       {currentStep === 2 && (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] shadow-sm p-6 sm:p-8 space-y-6">
+        <div key={`step2-${stepKey}`} className="animate-fade-in bg-white rounded-xl border border-[var(--color-border)] shadow-sm p-6 sm:p-8 space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-[var(--color-text)] mb-1">
               {stepInfo[2].title}
@@ -391,7 +444,18 @@ export default function MailGeneratorForm() {
 
       {/* Step 3 — Résultat */}
       {currentStep === 3 && warrantyStatus && generatedMail && (
-        <div className="space-y-6">
+        <div key={`step3-${stepKey}`} className="animate-slide-up space-y-6">
+          {/* Header succès */}
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 text-center animate-scale-in">
+            <div className="text-4xl mb-2">✅</div>
+            <h2 className="text-xl font-bold text-green-900 mb-1">
+              Votre mail est prêt !
+            </h2>
+            <p className="text-sm text-green-700">
+              Copiez-le, téléchargez-le ou ouvrez-le directement dans votre messagerie.
+            </p>
+          </div>
+
           {/* Statut de garantie */}
           <WarrantyStatus status={warrantyStatus} />
 
