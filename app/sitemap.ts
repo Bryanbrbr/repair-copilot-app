@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllApplianceSlugs } from "@/lib/appliances";
 import { getAllProblemPageParams } from "@/lib/problem-pages";
+import { getAllBlogSlugs } from "@/lib/blog";
 import { SITE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -55,5 +56,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticPages, ...guidePages, ...problemPages];
+  // Pages blog
+  const blogIndexPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+  ];
+
+  const blogPostPages: MetadataRoute.Sitemap = getAllBlogSlugs().map(
+    (slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })
+  );
+
+  return [
+    ...staticPages,
+    ...guidePages,
+    ...problemPages,
+    ...blogIndexPage,
+    ...blogPostPages,
+  ];
 }

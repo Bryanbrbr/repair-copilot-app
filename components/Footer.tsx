@@ -51,6 +51,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] text-sm transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/mentions-legales"
                   className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] text-sm transition-colors"
                 >
