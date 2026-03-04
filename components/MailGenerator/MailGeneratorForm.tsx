@@ -211,6 +211,7 @@ export default function MailGeneratorForm() {
               <input
                 type="text" id="brand" name="brand"
                 value={formData.brand} onChange={handleChange}
+                maxLength={100}
                 placeholder="Ex : Samsung, Bosch, LG..."
                 className={`w-full rounded-lg border ${errors.brand ? "border-red-300" : "border-[var(--color-border)]"} px-4 py-3 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]`}
               />
@@ -238,6 +239,7 @@ export default function MailGeneratorForm() {
               <input
                 type="text" id="store" name="store"
                 value={formData.store} onChange={handleChange}
+                maxLength={100}
                 placeholder="Ex : Darty, Amazon, Boulanger..."
                 className={`w-full rounded-lg border ${errors.store ? "border-red-300" : "border-[var(--color-border)]"} px-4 py-3 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]`}
               />
@@ -253,6 +255,7 @@ export default function MailGeneratorForm() {
             <input
               type="text" id="customerName" name="customerName"
               value={formData.customerName} onChange={handleChange}
+              maxLength={100}
               placeholder="Prénom Nom"
               className={`w-full rounded-lg border ${errors.customerName ? "border-red-300" : "border-[var(--color-border)]"} px-4 py-3 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]`}
             />
@@ -285,6 +288,7 @@ export default function MailGeneratorForm() {
                 <input
                   type="text" id="modelNumber" name="modelNumber"
                   value={formData.modelNumber || ""} onChange={handleChange}
+                  maxLength={50}
                   placeholder="Ex : WM14N200FF"
                   className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
                 />
@@ -296,6 +300,7 @@ export default function MailGeneratorForm() {
                 <input
                   type="text" id="serialNumber" name="serialNumber"
                   value={formData.serialNumber || ""} onChange={handleChange}
+                  maxLength={50}
                   placeholder="Visible sur l'étiquette"
                   className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
                 />
@@ -305,8 +310,9 @@ export default function MailGeneratorForm() {
                   Prix d&apos;achat (€)
                 </label>
                 <input
-                  type="text" id="purchaseAmount" name="purchaseAmount"
+                  type="number" id="purchaseAmount" name="purchaseAmount"
                   value={formData.purchaseAmount || ""} onChange={handleChange}
+                  min="0" max="99999" step="0.01"
                   placeholder="Ex : 499"
                   className="w-full rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)]"
                 />
@@ -357,7 +363,7 @@ export default function MailGeneratorForm() {
             <textarea
               id="problemDescription" name="problemDescription"
               value={formData.problemDescription} onChange={handleChange}
-              rows={4}
+              rows={4} maxLength={2000}
               placeholder="Décrivez le plus précisément possible le dysfonctionnement. Ex : Mon lave-linge ne s'allume plus depuis hier. Le voyant d'alimentation est éteint et l'appareil ne réagit à aucun bouton."
               className={`w-full rounded-lg border ${errors.problemDescription ? "border-red-300" : "border-[var(--color-border)]"} px-4 py-3 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-light)] resize-vertical`}
             />
