@@ -14,12 +14,73 @@ const quickLinks = [
   { label: "Voir tous les guides", href: "/guide", hint: "Par appareil et panne fréquente" },
 ];
 
+const applianceAliases: Record<string, { label?: string; keywords: string[] }> = {
+  "panne-lave-linge-garantie": {
+    keywords: ["machine a laver", "machine à laver", "linge", "washing machine"],
+  },
+  "panne-lave-vaisselle-garantie": {
+    keywords: ["vaisselle", "dishwasher"],
+  },
+  "panne-refrigerateur-garantie": {
+    keywords: ["frigo", "refrigerateur", "réfrigerateur", "refrigérateur"],
+  },
+  "panne-four-garantie": {
+    keywords: ["four", "micro onde", "micro-ondes", "micro onde combiné", "mini four"],
+  },
+  "panne-seche-linge-garantie": {
+    keywords: ["seche linge", "sèche linge", "dryer"],
+  },
+  "panne-aspirateur-garantie": {
+    keywords: ["aspirateur balai", "sans fil", "dyson", "traineau", "traîneau"],
+  },
+  "panne-television-garantie": {
+    label: "TV",
+    keywords: ["tv", "tele", "télé", "televiseur", "téléviseur", "ecran tv", "écran tv"],
+  },
+  "panne-ordinateur-portable-garantie": {
+    keywords: ["pc", "pc portable", "laptop", "macbook", "ordi", "ordinateur", "portable"],
+  },
+  "panne-smartphone-garantie": {
+    label: "Téléphone",
+    keywords: ["telephone", "téléphone", "portable", "mobile", "iphone", "samsung", "android"],
+  },
+  "panne-machine-a-cafe-garantie": {
+    keywords: ["machine a cafe", "machine à café", "cafetière", "cafe", "expresso", "nespresso"],
+  },
+  "panne-congelateur-garantie": {
+    keywords: ["congelateur", "congélateur", "freezer"],
+  },
+  "panne-micro-ondes-garantie": {
+    keywords: ["micro onde", "micro ondes", "micro-ondes", "microonde"],
+  },
+  "panne-aspirateur-robot-garantie": {
+    keywords: ["robot aspirateur", "roomba", "robot menager", "robot ménager"],
+  },
+  "panne-tablette-garantie": {
+    keywords: ["ipad", "tablette tactile", "galaxy tab"],
+  },
+  "panne-console-jeux-garantie": {
+    keywords: ["console", "ps5", "playstation", "xbox", "switch", "nintendo"],
+  },
+  "panne-montre-connectee-garantie": {
+    keywords: ["montre", "watch", "apple watch", "smartwatch", "bracelet connecté", "bracelet connecte"],
+  },
+};
+
+function normalize(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
+}
+
 export default function HeaderSearch({ compact = false, onNavigate }: HeaderSearchProps) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const deferredQuery = useDeferredValue(query);
-  const normalized = deferredQuery.trim().toLowerCase();
+  const normalized = normalize(deferredQuery);
 
   const applianceMatches = appliances
     .filter((appliance) => {
@@ -27,19 +88,22 @@ export default function HeaderSearch({ compact = false, onNavigate }: HeaderSear
         return true;
       }
 
+      const aliases = applianceAliases[appliance.slug]?.keywords ?? [];
       const haystack = [
         appliance.name,
         appliance.slug,
+        appliance.introduction,
+        ...aliases,
         ...appliance.commonProblems.map((problem) => problem.name),
       ]
-        .join(" ")
-        .toLowerCase();
+        .map(normalize)
+        .join(" ");
 
       return haystack.includes(normalized);
     })
     .slice(0, compact ? 4 : 5)
     .map((appliance) => ({
-      label: appliance.name,
+      label: applianceAliases[appliance.slug]?.label ?? appliance.name,
       href: `/guide/${appliance.slug}`,
       hint: appliance.commonProblems[0]?.name ?? "Guide détaillé",
     }));
