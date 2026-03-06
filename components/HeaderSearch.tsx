@@ -118,6 +118,11 @@ export default function HeaderSearch({ compact = false, onNavigate }: HeaderSear
   }
 
   function submitSearch() {
+    if (!normalized) {
+      goTo("/guide");
+      return;
+    }
+
     const firstMatch = applianceMatches[0];
 
     if (firstMatch) {
@@ -125,7 +130,7 @@ export default function HeaderSearch({ compact = false, onNavigate }: HeaderSear
       return;
     }
 
-    goTo(query.trim() ? "/guide" : "/generateur");
+    goTo("/guide");
   }
 
   return (
