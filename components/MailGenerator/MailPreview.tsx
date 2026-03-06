@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import type { GeneratedMail } from "@/lib/mail-templates";
@@ -52,6 +52,10 @@ export default function MailPreview({ mail }: MailPreviewProps) {
     a.download = `${mail.type}-${new Date().toISOString().split("T")[0]}.txt`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
@@ -108,7 +112,7 @@ export default function MailPreview({ mail }: MailPreviewProps) {
           {copied ? "Lettre copiée" : "Copier la lettre complète"}
         </button>
 
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           <button
             onClick={handleCopyBody}
             className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
@@ -126,6 +130,12 @@ export default function MailPreview({ mail }: MailPreviewProps) {
             className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
             Télécharger en .txt
+          </button>
+          <button
+            onClick={handlePrint}
+            className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+          >
+            Imprimer / PDF
           </button>
         </div>
       </div>

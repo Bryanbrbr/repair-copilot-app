@@ -21,15 +21,15 @@ type Step = 1 | 2 | 3;
 const stepInfo: Record<Step, { title: string; subtitle: string }> = {
   1: {
     title: "Votre dossier",
-    subtitle: "Les éléments qui donnent du poids à la demande",
+    subtitle: "Les Ã©lÃ©ments qui donnent du poids Ã  la demande",
   },
   2: {
     title: "Votre message",
-    subtitle: "Formuler la panne et choisir le ton adapté",
+    subtitle: "Formuler la panne et choisir le ton adaptÃ©",
   },
   3: {
     title: "Votre courrier",
-    subtitle: "Mail prêt à partir avec les prochaines étapes",
+    subtitle: "Mail prÃªt Ã  partir avec les prochaines Ã©tapes",
   },
 };
 
@@ -66,12 +66,12 @@ export default function MailGeneratorForm() {
 
   const validateStep1 = (): boolean => {
     const newErrors: Record<string, string> = {};
-    if (!formData.applianceType) newErrors.applianceType = "Sélectionnez un type d'appareil.";
+    if (!formData.applianceType) newErrors.applianceType = "SÃ©lectionnez un type d'appareil.";
     if (!formData.brand.trim()) newErrors.brand = "Indiquez la marque.";
     if (!formData.purchaseDate) {
       newErrors.purchaseDate = "Indiquez la date d'achat.";
     } else if (new Date(formData.purchaseDate) > new Date()) {
-      newErrors.purchaseDate = "La date d'achat ne peut pas être dans le futur.";
+      newErrors.purchaseDate = "La date d'achat ne peut pas Ãªtre dans le futur.";
     }
     if (!formData.store.trim()) newErrors.store = "Indiquez le vendeur ou le site d'achat.";
     if (!formData.customerName.trim()) newErrors.customerName = "Indiquez votre nom complet.";
@@ -82,9 +82,9 @@ export default function MailGeneratorForm() {
   const validateStep2 = (): boolean => {
     const newErrors: Record<string, string> = {};
     if (!formData.problemDescription.trim()) {
-      newErrors.problemDescription = "Décrivez précisément la panne.";
+      newErrors.problemDescription = "DÃ©crivez prÃ©cisÃ©ment la panne.";
     } else if (formData.problemDescription.trim().length < 20) {
-      newErrors.problemDescription = "Ajoutez un peu de contexte pour que le message soit crédible (20 caractères minimum).";
+      newErrors.problemDescription = "Ajoutez un peu de contexte pour que le message soit crÃ©dible (20 caractÃ¨res minimum).";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -144,7 +144,7 @@ export default function MailGeneratorForm() {
   return (
     <div className="space-y-6">
       <div className="surface-card rounded-[28px] p-5 sm:p-7">
-        <div className="flex items-center justify-between gap-3" role="navigation" aria-label="Étapes du formulaire">
+        <div className="flex items-center justify-between gap-3" role="navigation" aria-label="Ã‰tapes du formulaire">
           {([1, 2, 3] as Step[]).map((step) => (
             <div key={step} className="flex flex-1 items-center">
               <div className="flex flex-1 flex-col items-center">
@@ -204,7 +204,7 @@ export default function MailGeneratorForm() {
                   errors.applianceType ? "border-red-300" : "border-[var(--color-border)]"
                 } bg-white focus:border-[var(--color-primary)]`}
               >
-                <option value="">Sélectionnez un appareil</option>
+                <option value="">SÃ©lectionnez un appareil</option>
                 {applianceTypes.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -282,7 +282,7 @@ export default function MailGeneratorForm() {
               value={formData.customerName}
               onChange={handleChange}
               maxLength={100}
-              placeholder="Prénom Nom"
+              placeholder="PrÃ©nom Nom"
               className={`w-full rounded-2xl border px-4 py-3 text-[var(--color-text)] outline-none transition ${
                 errors.customerName ? "border-red-300" : "border-[var(--color-border)]"
               } bg-white focus:border-[var(--color-primary)]`}
@@ -312,7 +312,7 @@ export default function MailGeneratorForm() {
             <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
                 <label htmlFor="modelNumber" className="mb-1 block text-sm font-medium text-[var(--color-text)]">
-                  Numéro de modèle
+                  NumÃ©ro de modÃ¨le
                 </label>
                 <input
                   type="text"
@@ -327,7 +327,7 @@ export default function MailGeneratorForm() {
               </div>
               <div>
                 <label htmlFor="serialNumber" className="mb-1 block text-sm font-medium text-[var(--color-text)]">
-                  Numéro de série
+                  NumÃ©ro de sÃ©rie
                 </label>
                 <input
                   type="text"
@@ -336,13 +336,13 @@ export default function MailGeneratorForm() {
                   value={formData.serialNumber || ""}
                   onChange={handleChange}
                   maxLength={50}
-                  placeholder="Visible sur l&apos;étiquette"
+                  placeholder="Visible sur l&apos;Ã©tiquette"
                   className="w-full rounded-2xl border border-[var(--color-border)] px-3 py-2 text-sm text-[var(--color-text)] outline-none focus:border-[var(--color-primary)]"
                 />
               </div>
               <div>
                 <label htmlFor="purchaseAmount" className="mb-1 block text-sm font-medium text-[var(--color-text)]">
-                  Prix d&apos;achat (€)
+                  Prix d&apos;achat (â‚¬)
                 </label>
                 <input
                   type="number"
@@ -370,7 +370,7 @@ export default function MailGeneratorForm() {
                 : "cursor-not-allowed bg-gray-200 text-gray-400"
             }`}
           >
-            Continuer vers la rédaction
+            Continuer vers la rÃ©daction
           </button>
         </div>
       )}
@@ -383,8 +383,8 @@ export default function MailGeneratorForm() {
           </div>
 
           <div className="mt-6 rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-4 text-sm text-[var(--color-text-soft)]">
-            <span className="font-semibold text-[var(--color-text)]">Récapitulatif :</span>{" "}
-            {formData.applianceType} {formData.brand}, acheté chez {formData.store} le {formData.purchaseDate}.
+            <span className="font-semibold text-[var(--color-text)]">RÃ©capitulatif :</span>{" "}
+            {formData.applianceType} {formData.brand}, achetÃ© chez {formData.store} le {formData.purchaseDate}.
           </div>
 
           <div className="mt-6">
@@ -398,7 +398,7 @@ export default function MailGeneratorForm() {
               onChange={handleChange}
               rows={5}
               maxLength={2000}
-              placeholder="Décrivez factuellement ce qui ne fonctionne plus. Exemple : mon lave-linge ne s'allume plus depuis mardi, malgré plusieurs essais et une installation normale."
+              placeholder="DÃ©crivez factuellement ce qui ne fonctionne plus. Exemple : mon lave-linge ne s'allume plus depuis mardi, malgrÃ© plusieurs essais et une installation normale."
               className={`w-full rounded-[24px] border px-4 py-3 text-[var(--color-text)] outline-none transition ${
                 errors.problemDescription ? "border-red-300" : "border-[var(--color-border)]"
               } bg-white focus:border-[var(--color-primary)]`}
@@ -432,12 +432,12 @@ export default function MailGeneratorForm() {
           </div>
 
           <div className="mt-6 rounded-[24px] border border-[var(--color-border)] bg-white p-5">
-            <p className="text-sm font-semibold text-[var(--color-text)]">Pièces recommandées à joindre</p>
+            <p className="text-sm font-semibold text-[var(--color-text)]">PiÃ¨ces recommandÃ©es Ã  joindre</p>
             <ul className="mt-4 space-y-2 text-sm text-[var(--color-text-soft)]">
               {recommendedAttachments
                 .filter((attachment) => attachment.always || !formData.hasReceipt)
                 .map((attachment) => (
-                  <li key={attachment.id}>• {attachment.label}</li>
+                  <li key={attachment.id}>â€¢ {attachment.label}</li>
                 ))}
             </ul>
           </div>
@@ -460,7 +460,7 @@ export default function MailGeneratorForm() {
                   : "cursor-not-allowed bg-gray-200 text-gray-400"
               }`}
             >
-              Générer mon courrier
+              GÃ©nÃ©rer mon courrier
             </button>
           </div>
         </div>
@@ -469,9 +469,9 @@ export default function MailGeneratorForm() {
       {currentStep === 3 && warrantyStatus && generatedMail && (
         <div key={`step3-${stepKey}`} className="animate-slide-up space-y-6">
           <div className="rounded-[28px] border border-emerald-200 bg-emerald-50 px-6 py-6 text-center">
-            <h2 className="text-2xl font-semibold text-emerald-900">Votre mail est prêt</h2>
+            <h2 className="text-2xl font-semibold text-emerald-900">Votre mail est prÃªt</h2>
             <p className="mt-2 text-sm leading-6 text-emerald-700">
-              Vérifiez le statut estimé de garantie, copiez le texte et joignez les pièces utiles.
+              VÃ©rifiez le statut estimÃ© de garantie, copiez le texte et joignez les piÃ¨ces utiles.
             </p>
           </div>
 
@@ -486,7 +486,7 @@ export default function MailGeneratorForm() {
                   : "border border-[var(--color-border)] bg-white text-[var(--color-text-soft)]"
               }`}
             >
-              Réclamation initiale
+              RÃ©clamation initiale
             </button>
             <button
               onClick={() => setShowRelance(true)}
@@ -506,9 +506,9 @@ export default function MailGeneratorForm() {
             <h3 className="text-lg font-semibold text-[var(--color-text)]">Checklist d&apos;envoi</h3>
             <ol className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-text-soft)]">
               <li>1. Copiez le mail et envoyez-le au service client de {formData.store}.</li>
-              <li>2. Ajoutez les justificatifs utiles : facture, photos, captures d&apos;échange.</li>
-              <li>3. Gardez une copie du message envoyé et des pièces jointes.</li>
-              <li>4. Si aucune réponse n&apos;arrive, utilisez la version de relance sous 8 à 15 jours.</li>
+              <li>2. Ajoutez les justificatifs utiles : facture, photos, captures d&apos;Ã©change.</li>
+              <li>3. Gardez une copie du message envoyÃ© et des piÃ¨ces jointes.</li>
+              <li>4. Si aucune rÃ©ponse n&apos;arrive, utilisez la version de relance sous 8 Ã  15 jours.</li>
             </ol>
           </div>
 
@@ -517,7 +517,7 @@ export default function MailGeneratorForm() {
             onClick={handlePrevStep}
             className="w-full rounded-2xl border border-[var(--color-border)] bg-white px-8 py-4 font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
-            Modifier ma réclamation
+            Modifier ma rÃ©clamation
           </button>
         </div>
       )}

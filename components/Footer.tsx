@@ -3,11 +3,11 @@ import Link from "next/link";
 const legalLinks = [
   {
     href: "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006069565/LEGISCTA000032221271/",
-    label: "Code de la consommation sur Légifrance",
+    label: "Code de la consommation sur LÃ©gifrance",
   },
   {
     href: "https://www.economie.gouv.fr/dgccrf/les-garanties-legales",
-    label: "DGCCRF — Les garanties légales",
+    label: "DGCCRF â€” Les garanties lÃ©gales",
   },
   {
     href: "https://www.quechoisir.org/",
@@ -25,11 +25,11 @@ export default function Footer() {
           <div>
             <p className="eyebrow">Positionnement</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)]">
-              Un outil simple pour défendre un droit précis
+              Un outil simple pour dÃ©fendre un droit prÃ©cis
             </h3>
             <p className="mt-4 text-sm leading-7 text-[var(--color-text-soft)]">
-              Repair Copilot aide à formuler une réclamation fondée sur la garantie légale de
-              conformité. Le site ne remplace pas un avocat, mais il évite d&apos;envoyer un mail flou,
+              Repair Copilot aide Ã  formuler une rÃ©clamation fondÃ©e sur la garantie lÃ©gale de
+              conformitÃ©. Le site ne remplace pas un avocat, mais il Ã©vite d&apos;envoyer un mail flou,
               incomplet ou juridiquement faible.
             </p>
           </div>
@@ -38,10 +38,10 @@ export default function Footer() {
             <p className="eyebrow">Navigation</p>
             <ul className="mt-4 space-y-3 text-sm text-[var(--color-text-soft)]">
               <li><Link href="/">Accueil</Link></li>
-              <li><Link href="/generateur">Générateur de mail</Link></li>
+              <li><Link href="/generateur">GÃ©nÃ©rateur de mail</Link></li>
               <li><Link href="/guide">Guides par appareil</Link></li>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/mentions-legales">Mentions légales</Link></li>
+              <li><Link href="/mentions-legales">Mentions lÃ©gales</Link></li>
             </ul>
           </div>
 
@@ -56,7 +56,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="transition hover:text-[var(--color-primary)]"
                   >
-                    {link.label} ↗
+                    {link.label} â†—
                   </a>
                 </li>
               ))}
@@ -67,11 +67,11 @@ export default function Footer() {
         <div className="mt-8 grid gap-4 text-xs leading-6 text-[var(--color-text-muted)] md:grid-cols-[1.2fr_0.8fr]">
           <p>
             <strong>Avertissement :</strong> Les informations fournies par Repair Copilot sont
-            données à titre indicatif, sur la base du Code de la consommation français en vigueur.
-            Elles ne constituent pas un conseil juridique personnalisé. En cas de litige complexe,
+            donnÃ©es Ã  titre indicatif, sur la base du Code de la consommation franÃ§ais en vigueur.
+            Elles ne constituent pas un conseil juridique personnalisÃ©. En cas de litige complexe,
             consultez un professionnel du droit ou une association de consommateurs.
           </p>
-          <p className="md:text-right">© {currentYear} Repair Copilot. Tous droits réservés.</p>
+          <p className="md:text-right">Â© {currentYear} Repair Copilot. Tous droits rÃ©servÃ©s.</p>
         </div>
       </div>
     </footer>
