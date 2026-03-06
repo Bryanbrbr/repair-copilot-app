@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/config";
+
 interface FAQItem {
   question: string;
   answer: string;
@@ -44,7 +46,7 @@ export function buildFAQSchema(items: FAQItem[]) {
 }
 
 export function buildWebAppSchema(overrides?: Record<string, unknown>) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://repair-copilot-app.vercel.app";
+  const siteUrl = SITE_URL;
   return {
     name: "Repair Copilot",
     description:
@@ -76,7 +78,7 @@ export function buildBreadcrumbSchema(
 }
 
 export function buildArticleSchema(overrides: Record<string, unknown>) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://repair-copilot-app.vercel.app";
+  const siteUrl = SITE_URL;
   return {
     publisher: {
       "@type": "Organization",
