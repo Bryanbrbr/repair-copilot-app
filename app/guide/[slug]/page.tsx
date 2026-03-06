@@ -7,6 +7,7 @@ import {
   getAllApplianceSlugs,
 } from "@/lib/appliances";
 import { SITE_URL } from "@/lib/config";
+import { toSafeJsonLd } from "@/components/SEO/StructuredData";
 
 // Génération statique des pages
 export function generateStaticParams() {
@@ -304,7 +305,7 @@ export default async function GuideAppliancePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: appliance.faq.map((item) => ({
@@ -323,7 +324,7 @@ export default async function GuideAppliancePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [

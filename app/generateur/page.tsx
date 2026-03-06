@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import MailGeneratorForm from "@/components/MailGenerator/MailGeneratorForm";
 import { WARRANTY_DISCLAIMER } from "@/lib/legal-references";
 import { SITE_URL } from "@/lib/config";
+import { toSafeJsonLd } from "@/components/SEO/StructuredData";
 
 export const metadata: Metadata = {
   title: "Générateur de mail de réclamation garantie légale – Gratuit",
@@ -117,7 +118,7 @@ export default function GenerateurPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: "Générateur de mail de réclamation garantie",

@@ -3,6 +3,7 @@
 import { useDeferredValue, useState } from "react";
 import { useRouter } from "next/navigation";
 import { appliances } from "@/lib/appliances";
+import { sanitizeSingleLineInput } from "@/lib/input-sanitizer";
 
 interface HeaderSearchProps {
   compact?: boolean;
@@ -153,7 +154,7 @@ export default function HeaderSearch({ compact = false, onNavigate }: HeaderSear
           type="search"
           value={query}
           onChange={(event) => {
-            setQuery(event.target.value);
+            setQuery(sanitizeSingleLineInput(event.target.value, 80));
             setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
@@ -168,6 +169,7 @@ export default function HeaderSearch({ compact = false, onNavigate }: HeaderSear
           }}
           placeholder={compact ? "Chercher un appareil" : "Chercher un appareil ou une panne"}
           className="min-w-0 flex-1 bg-transparent text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] focus:outline-none"
+          maxLength={80}
           aria-label="Rechercher un appareil ou une panne"
         />
         <button

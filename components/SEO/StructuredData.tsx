@@ -10,9 +10,15 @@ interface StructuredDataProps {
   data: Record<string, unknown>;
 }
 
+export function toSafeJsonLd(data: Record<string, unknown>) {
+  return JSON.stringify(data)
+    .replace(/</g, "\u003c")
+    .replace(/>/g, "\u003e")
+    .replace(/&/g, "\u0026");
+}
+
 /**
- * Composant Server pour injecter du JSON-LD proprement.
- * Utilisé pour FAQPage, WebApplication, Article, BreadcrumbList.
+ * Server component to inject JSON-LD safely.
  */
 export default function StructuredData({ type, data }: StructuredDataProps) {
   const jsonLd = {
@@ -24,14 +30,11 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      dangerouslySetInnerHTML={{ __html: toSafeJsonLd(jsonLd) }}
     />
   );
 }
 
-/**
- * Helpers pour construire les structured data courantes.
- */
 export function buildFAQSchema(items: FAQItem[]) {
   return {
     mainEntity: items.map((item) => ({

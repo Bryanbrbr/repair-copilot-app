@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { appliances } from "@/lib/appliances";
 import { SITE_URL } from "@/lib/config";
+import { toSafeJsonLd } from "@/components/SEO/StructuredData";
 
 export const metadata: Metadata = {
   title: "Guides garantie par appareil — Lave-linge, frigo, TV, smartphone",
@@ -89,7 +90,7 @@ export default function GuidesIndexPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [

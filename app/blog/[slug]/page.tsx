@@ -9,7 +9,7 @@ import {
 } from "@/lib/blog";
 import { SITE_URL } from "@/lib/config";
 import BlogContent from "@/components/Blog/BlogContent";
-import StructuredData, { buildFAQSchema } from "@/components/SEO/StructuredData";
+import StructuredData, { buildFAQSchema, toSafeJsonLd } from "@/components/SEO/StructuredData";
 
 // Génération statique
 export function generateStaticParams() {
@@ -191,7 +191,7 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "Article",
             headline: post.title,
@@ -221,7 +221,7 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [

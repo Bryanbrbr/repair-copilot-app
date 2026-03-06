@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts, blogCategories } from "@/lib/blog";
 import { SITE_URL } from "@/lib/config";
+import { toSafeJsonLd } from "@/components/SEO/StructuredData";
 
 export const metadata: Metadata = {
   title: "Blog — Garantie, droits consommateur et conseils pratiques",
@@ -93,7 +94,7 @@ export default function BlogIndexPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: toSafeJsonLd({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [

@@ -15,6 +15,11 @@ import {
 import type { WarrantyStatus as WarrantyStatusType } from "@/lib/warranty-calculator";
 import WarrantyStatus from "./WarrantyStatus";
 import MailPreview from "./MailPreview";
+import {
+  sanitizeAmountInput,
+  sanitizeMultilineInput,
+  sanitizeSingleLineInput,
+} from "@/lib/input-sanitizer";
 
 type Step = 1 | 2 | 3;
 
@@ -119,7 +124,16 @@ export default function MailGeneratorForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-    const newValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+
+    const newValue =
+      type === "checkbox"
+        ? (e.target as HTMLInputElement).checked
+        : name === "problemDescription"
+        ? sanitizeMultilineInput(value, 2000)
+        : name === "purchaseAmount"
+        ? sanitizeAmountInput(value, 10)
+        : sanitizeSingleLineInput(value, 100);
+
     setFormData((prev) => ({ ...prev, [name]: newValue }));
     if (errors[name]) {
       setErrors((prev) => {

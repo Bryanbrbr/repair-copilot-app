@@ -1,5 +1,5 @@
 /**
- * URL de base du site. Utilis?e pour le SEO, les canonical URLs,
+ * URL de base du site. Utilisee pour le SEO, les canonical URLs,
  * le sitemap, robots.txt et les structured data.
  */
 export const SITE_URL =
