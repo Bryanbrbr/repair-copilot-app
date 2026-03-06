@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { appliances } from "@/lib/appliances";
+import { blogPosts } from "@/lib/blog";
+import { legalArticles } from "@/lib/legal-references";
 import StructuredData, {
   buildFAQSchema,
   buildWebAppSchema,
@@ -79,9 +81,41 @@ const processSteps = [
   {
     number: "03",
     title: "Copiez et envoyez",
-    text: "Vous récupérez un objet, un corps de mail, une relance possible et la liste des pièces recommandées à joindre.",
+    text: "Vous récupérez un objet, un corps de mail, une relance possible et la liste des pièces recommandées ? joindre.",
   },
 ];
+
+const legalSignals = legalArticles
+  .filter((article) => ["L217-3", "L217-7", "L217-11"].includes(article.article))
+  .map((article) => ({
+    article: article.article,
+    title: article.title,
+    summary: article.summary,
+    url: article.url,
+  }));
+
+const caseSnapshots = [
+  {
+    title: "Le vendeur vous renvoie vers le fabricant",
+    text: "Le site recadre la demande sur le bon interlocuteur : le vendeur reste responsable de la garantie légale de conformité.",
+  },
+  {
+    title: "On vous demande des frais de port ou de déplacement",
+    text: "Le mail rappelle que la mise en conformité doit être réalisée sans frais pour le consommateur.",
+  },
+  {
+    title: "Votre appareil est tombé en panne après quelques mois",
+    text: "Le courrier met en avant la présomption d'antériorité du défaut pour éviter de partir sur une discussion floue.",
+  },
+];
+
+const featuredReads = blogPosts.filter((post) =>
+  [
+    "appareil-en-panne-moins-de-2-ans-que-faire",
+    "vendeur-renvoie-vers-fabricant-est-ce-legal",
+    "justificatifs-a-joindre-reclamation-garantie",
+  ].includes(post.slug)
+);
 
 export default function HomePage() {
   return (
@@ -223,6 +257,63 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="surface-card rounded-[28px] p-7 shadow-[0_22px_48px_-36px_rgba(15,23,42,0.42)]">
+              <p className="eyebrow">Base juridique</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+                Les appuis légaux que le site remet en avant dans le mail
+              </h2>
+              <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                L&apos;objectif n&apos;est pas d&apos;impressionner avec du jargon. L&apos;objectif est de rappeler les bons textes, au bon moment, avec une formulation exploitable par un service client.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {legalSignals.map((item) => (
+                  <a
+                    key={item.article}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-[22px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-5 transition hover:border-[var(--color-primary)] hover:-translate-y-0.5"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)]">
+                        Article {item.article}
+                      </p>
+                      <span className="text-xs font-medium text-[var(--color-text-muted)]">Lire la source ↗</span>
+                    </div>
+                    <h3 className="mt-2 text-lg font-semibold text-[var(--color-text)]">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-text-soft)]">{item.summary}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="surface-card rounded-[28px] p-7 shadow-[0_22px_48px_-36px_rgba(15,23,42,0.42)]">
+                <p className="eyebrow">Cas fréquents</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)]">
+                  Ce que les visiteurs cherchent en pratique
+                </h2>
+                <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                  La vraie demande n&apos;est pas &quot;explique-moi la loi&quot;. C&apos;est plut?t &quot;dis-moi quoi envoyer et ? qui&quot;. Le site doit donc couvrir les objections les plus fr?quentes.
+                </p>
+              </div>
+              {caseSnapshots.map((item) => (
+                <article
+                  key={item.title}
+                  className="surface-card rounded-[24px] p-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.4)]"
+                >
+                  <h3 className="text-xl font-semibold text-[var(--color-text)]">{item.title}</h3>
+                  <p className="mt-3 text-base leading-7 text-[var(--color-text-soft)]">{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-[var(--color-border)] bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -295,6 +386,47 @@ export default function HomePage() {
                 <span className="text-3xl">{appliance.icon}</span>
                 <span className="mt-3 text-sm font-semibold text-[var(--color-text)]">
                   {appliance.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--color-border)] bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Lectures utiles</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+                Les contenus qui r?pondent aux vraies objections avant d&apos;envoyer
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-[var(--color-text-soft)]">
+                Ces articles servent ? lever les h?sitations les plus fr?quentes : qui contacter, quoi joindre, et quoi faire quand l&apos;appareil a moins de deux ans.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center justify-center rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-bg-alt)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+            >
+              Voir tout le blog
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {featuredReads.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="surface-card rounded-[26px] p-6 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:border-[var(--color-primary)]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)]">
+                  {post.readingTime}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-[var(--color-text)]">{post.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-soft)]">{post.description}</p>
+                <span className="mt-4 inline-flex text-sm font-semibold text-[var(--color-primary)]">
+                  Lire l&apos;article ?
                 </span>
               </Link>
             ))}

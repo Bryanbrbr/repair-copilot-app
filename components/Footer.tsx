@@ -15,13 +15,19 @@ const legalLinks = [
   },
 ];
 
+const trustMarks = [
+  "Données traitées localement dans le navigateur",
+  "Aucune inscription requise",
+  "Références issues de sources officielles",
+];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="mt-16 border-t border-[var(--color-border)] bg-[rgba(255,250,240,0.72)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[28px] border border-[var(--color-border)] bg-white p-8 shadow-[0_24px_50px_-40px_rgba(15,23,42,0.5)] md:grid-cols-[1.1fr_0.9fr_1fr]">
+        <div className="grid gap-8 rounded-[28px] border border-[var(--color-border)] bg-white p-8 shadow-[0_24px_50px_-40px_rgba(15,23,42,0.5)] md:grid-cols-2 xl:grid-cols-[1.1fr_0.9fr_0.9fr_1fr]">
           <div>
             <p className="eyebrow">Positionnement</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)]">
@@ -31,6 +37,9 @@ export default function Footer() {
               Repair Copilot aide à formuler une réclamation fondée sur la garantie légale de
               conformité. Le site ne remplace pas un avocat, mais il évite d&apos;envoyer un mail flou,
               incomplet ou juridiquement faible.
+            </p>
+            <p className="mt-4 text-sm text-[var(--color-text-soft)]">
+              Contact : <a href="mailto:repaircopilot.contact@gmail.com" className="font-medium text-[var(--color-primary)] hover:underline">repaircopilot.contact@gmail.com</a>
             </p>
           </div>
 
@@ -42,6 +51,18 @@ export default function Footer() {
               <li><Link href="/guide">Guides par appareil</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/mentions-legales">Mentions légales</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="eyebrow">Réassurance</p>
+            <ul className="mt-4 space-y-3 text-sm text-[var(--color-text-soft)]">
+              {trustMarks.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[var(--color-secondary)]" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -719,6 +719,285 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "appareil-en-panne-moins-de-2-ans-que-faire",
+    title: "Appareil en panne moins de 2 ans : que faire concrètement ?",
+    description:
+      "Votre appareil est tombé en panne avant 2 ans ? Voici les étapes concrètes pour activer la garantie légale, écrire au bon interlocuteur et éviter les pièges classiques.",
+    seoKeywords: [
+      "appareil en panne moins de 2 ans",
+      "que faire garantie légale",
+      "garantie appareil panne",
+      "réclamation vendeur appareil",
+    ],
+    publishedAt: "2026-03-06",
+    author: "Repair Copilot",
+    category: "garantie-legale",
+    readingTime: "5 min",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Quand un appareil tombe en panne après quelques mois, beaucoup de consommateurs hésitent : faut-il contacter le SAV, le fabricant, ou payer la réparation ? Si l'achat date de moins de 2 ans, la première chose à faire est de vérifier la garantie légale de conformité. Dans la majorité des cas, c'est votre vendeur qui doit prendre le relais.",
+      },
+      {
+        type: "heading",
+        content: "Étape 1 : vérifier la date d'achat",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Avant tout, rassemblez la date d'achat et une preuve : facture, ticket, relevé bancaire ou email de confirmation. Si l'appareil a moins de 24 mois, vous êtes dans la fenêtre classique de la garantie légale de conformité pour un bien neuf.",
+      },
+      {
+        type: "heading",
+        content: "Étape 2 : écrire au vendeur, pas au fabricant",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Le réflexe le plus fréquent est de partir vers le fabricant. Juridiquement, ce n'est pourtant pas le bon point d'entrée. La garantie légale s'exerce d'abord contre le vendeur : magasin, marketplace vendeuse ou site sur lequel vous avez acheté l'appareil.",
+      },
+      {
+        type: "list",
+        content: "Dans votre premier message, mentionnez :",
+        items: [
+          "la date d'achat et le vendeur concerné",
+          "le type d'appareil, la marque et si possible le modèle",
+          "une description factuelle de la panne",
+          "votre demande de réparation ou de remplacement au titre des articles L217-3 et suivants",
+        ],
+      },
+      {
+        type: "heading",
+        content: "Étape 3 : éviter les faux frais",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Le vendeur ne peut pas transformer la garantie légale en devis caché. Si on vous demande de payer des frais de port, de déplacement ou une expertise avant prise en charge, il faut recadrer la demande par écrit. La mise en conformité doit être effectuée sans frais pour le consommateur.",
+      },
+      {
+        type: "callout",
+        content:
+          "Si vous ne savez pas comment formuler tout cela proprement, utilisez un mail structur? d?s le premier contact. C'est souvent ce qui fait la diff?rence entre une discussion floue et une vraie prise en charge.",
+        variant: "tip",
+      },
+    ],
+    faq: [
+      {
+        question: "Mon appareil a 23 mois, est-ce encore couvert ?",
+        answer:
+          "Oui, si l'achat date de moins de 24 mois pour un appareil neuf, vous êtes normalement encore dans la p?riode classique de la garantie légale de conformité.",
+      },
+      {
+        question: "Je n'ai plus la facture, suis-je bloqu? ?",
+        answer:
+          "Non. Toute preuve d'achat datée peut aider : ticket, relevé bancaire, confirmation de commande ou relevé de carte bancaire.",
+      },
+    ],
+  },
+  {
+    slug: "vendeur-renvoie-vers-fabricant-est-ce-legal",
+    title: "Le vendeur vous renvoie vers le fabricant : est-ce légal ?",
+    description:
+      "Beaucoup de vendeurs essaient de vous orienter vers le fabricant ou le SAV constructeur. Voici ce que la garantie légale prévoit réellement et comment recadrer la situation.",
+    seoKeywords: [
+      "vendeur renvoie vers fabricant",
+      "garantie vendeur ou fabricant",
+      "qui contacter garantie légale",
+      "vendeur refuse garantie fabricant",
+    ],
+    publishedAt: "2026-03-06",
+    author: "Repair Copilot",
+    category: "droits-consommateur",
+    readingTime: "4 min",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "C'est l'une des réponses les plus fréquentes : ? voyez avec le fabricant ?. En pratique, cela sert souvent à faire sortir le dossier du bon cadre. Pourtant, si vous invoquez la garantie légale de conformité, c'est bien le vendeur qui reste votre interlocuteur principal.",
+      },
+      {
+        type: "heading",
+        content: "Pourquoi le vendeur reste responsable",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "La garantie légale de conformité est attachée ? la vente. Autrement dit, c'est le professionnel qui vous a vendu le bien qui doit répondre d'un défaut de conformité, pas le fabricant qui a conçu l'appareil. Le fabricant peut intervenir techniquement, mais cela ne déplace pas la responsabilité juridique.",
+      },
+      {
+        type: "heading",
+        content: "Ce que vous pouvez répondre",
+        level: 2,
+      },
+      {
+        type: "list",
+        content: "Dans votre mail, vous pouvez rappeler simplement que :",
+        items: [
+          "votre demande est formulée au titre de la garantie légale de conformité",
+          "le vendeur est votre interlocuteur légal",
+          "vous attendez une mise en conformité sans frais",
+          "vous souhaitez une réponse écrite sur la prise en charge",
+        ],
+      },
+      {
+        type: "callout",
+        content:
+          "Accepter d'aller directement chez le fabricant n'est pas forcément une erreur pratique. Mais il ne faut pas laisser croire que le vendeur n'a plus d'obligation. Gardez toujours une trace écrite avec lui.",
+        variant: "warning",
+      },
+    ],
+    faq: [
+      {
+        question: "Puis-je quand même passer par le SAV constructeur ?",
+        answer:
+          "Oui, si cela vous arrange. Mais gardez en tête que cela ne remplace pas les obligations du vendeur au titre de la garantie légale.",
+      },
+      {
+        question: "Le vendeur me dit que c'est la politique de la marque, que faire ?",
+        answer:
+          "Répondez par écrit que votre demande est fondée sur la garantie légale de conformité et qu'elle s'exerce auprès du vendeur. Demandez une réponse claire sur la prise en charge.",
+      },
+    ],
+  },
+  {
+    slug: "justificatifs-a-joindre-reclamation-garantie",
+    title: "Quels justificatifs joindre à une réclamation de garantie ?",
+    description:
+      "Facture, ticket, photo de la panne, numéro de série : voici les pièces les plus utiles ? joindre pour donner du poids à votre réclamation sans noyer le vendeur.",
+    seoKeywords: [
+      "justificatifs garantie légale",
+      "pièces ? joindre réclamation garantie",
+      "facture garantie appareil",
+      "preuve achat garantie",
+    ],
+    publishedAt: "2026-03-06",
+    author: "Repair Copilot",
+    category: "conseils-pratiques",
+    readingTime: "4 min",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Une bonne réclamation ne repose pas seulement sur le texte du mail. Elle repose aussi sur les bonnes pièces jointes. L'idée n'est pas d'envoyer dix documents inutiles, mais de donner au vendeur de quoi identifier l'achat, le produit et le défaut signalé.",
+      },
+      {
+        type: "heading",
+        content: "Les pièces les plus utiles",
+        level: 2,
+      },
+      {
+        type: "list",
+        content: "Dans la plupart des cas, joignez en priorité :",
+        items: [
+          "une preuve d'achat datée",
+          "une photo du produit et si possible de son étiquette ou numéro de série",
+          "une ou deux photos ou vidéos de la panne si elles parlent d'elles-mêmes",
+          "une capture d'écran de la commande si l'achat a été fait en ligne",
+        ],
+      },
+      {
+        type: "heading",
+        content: "Ce qu'il vaut mieux éviter",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Évitez les pièces jointes lourdes, les captures inutiles et les explications dispersées sur dix emails différents. Un dossier clair donne une impression de sérieux et facilite la prise en charge en interne.",
+      },
+      {
+        type: "callout",
+        content:
+          "Si vous n'avez pas la facture, n'abandonnez pas. Un relevé bancaire ou un email de confirmation de commande suffit souvent ? établir la date d'achat.",
+        variant: "info",
+      },
+    ],
+    faq: [
+      {
+        question: "Dois-je joindre des photos de la panne ?",
+        answer:
+          "Oui si elles sont parlantes. Une photo d'écran cassé, de fuite, de code erreur ou une courte vidéo peut aider le vendeur ? comprendre la situation rapidement.",
+      },
+      {
+        question: "Je n'ai que mon relevé bancaire, est-ce utile ?",
+        answer:
+          "Oui. Ce n'est pas toujours la preuve la plus confortable, mais cela peut suffire pour établir l'achat et sa date.",
+      },
+    ],
+  },
+  {
+    slug: "telephone-en-panne-apres-1-an-garantie-ou-pas",
+    title: "Téléphone en panne après 1 an : garantie ou pas ?",
+    description:
+      "Votre téléphone ne tient plus la charge, bug ou ne s'allume plus après un an ? Voici comment vérifier si la garantie légale peut encore jouer et comment écrire au vendeur.",
+    seoKeywords: [
+      "telephone en panne après 1 an",
+      "garantie téléphone 1 an",
+      "smartphone panne garantie légale",
+      "iphone panne garantie vendeur",
+    ],
+    publishedAt: "2026-03-06",
+    author: "Repair Copilot",
+    category: "garantie-legale",
+    readingTime: "5 min",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Quand un téléphone commence ? buguer, ? perdre brutalement sa batterie ou ? ne plus s'allumer après un an, beaucoup de personnes pensent que c'est fichu parce que la garantie constructeur de 12 mois est terminée. C'est justement là qu'il faut distinguer garantie commerciale et garantie légale.",
+      },
+      {
+        type: "heading",
+        content: "Garantie constructeur et garantie légale : deux choses différentes",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        content:
+          "La garantie constructeur peut être limitée ? 12 mois. Mais la garantie légale de conformité sur un bien neuf dure généralement 24 mois. Donc un téléphone acheté il y a 13, 14 ou 18 mois peut encore être couvert face au vendeur.",
+      },
+      {
+        type: "heading",
+        content: "Les pannes qui méritent une vraie vérification",
+        level: 2,
+      },
+      {
+        type: "list",
+        content: "Avant d'abandonner, vérifiez votre position si votre téléphone présente :",
+        items: [
+          "une batterie qui chute anormalement vite",
+          "un écran qui ne répond plus correctement",
+          "des redémarrages ou bugs majeurs répétés",
+          "un appareil photo ou un module essentiel défaillant",
+        ],
+      },
+      {
+        type: "callout",
+        content:
+          "Le bon réflexe n'est pas d'aller directement vers un réparateur indépendant. Il vaut mieux écrire d'abord au vendeur pour préserver votre position sur la garantie légale.",
+        variant: "tip",
+      },
+    ],
+    faq: [
+      {
+        question: "Un iPhone acheté il y a 14 mois peut-il encore être couvert ?",
+        answer:
+          "Oui, potentiellement. Ce n'est pas la durée de la garantie constructeur qui compte ici, mais la garantie légale de conformité auprès du vendeur si le téléphone est neuf.",
+      },
+      {
+        question: "La batterie est-elle toujours considérée comme une pièce d'usure ?",
+        answer:
+          "Pas automatiquement. Une dégradation anormalement rapide ou prématurée peut justifier une réclamation, surtout si elle apparaît tôt et rend l'usage du téléphone tr?s d?grad?.",
+      },
+    ],
+  },
 ];
 
 // ===== Helpers =====
