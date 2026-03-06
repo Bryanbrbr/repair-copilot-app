@@ -157,6 +157,14 @@ export default function HomePage() {
                     En application des articles L217-3, L217-7 et L217-11 du Code de la
                     consommation, je vous demande la mise en conformité du produit sans frais.
                   </p>
+                  <div
+                    aria-hidden="true"
+                    className="mt-4 flex items-center gap-2 text-[var(--color-text-muted)]/70"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                  </div>
                 </div>
               </div>
 
