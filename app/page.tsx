@@ -157,13 +157,17 @@ export default function HomePage() {
                     En application des articles L217-3, L217-7 et L217-11 du Code de la
                     consommation, je vous demande la mise en conformité du produit sans frais.
                   </p>
-                  <div
-                    aria-hidden="true"
-                    className="mt-4 flex items-center gap-2 text-[var(--color-text-muted)]/70"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                  <div className="relative mt-4 h-10 overflow-hidden rounded-b-xl">
+                    <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[var(--color-bg-alt)] via-[var(--color-bg-alt)]/95 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center justify-between px-1 pb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-muted)]/80">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-2.5 py-1 shadow-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                        Extrait du mail
+                      </span>
+                      <span aria-hidden="true" className="text-base tracking-[0.3em]">
+                        ...
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
