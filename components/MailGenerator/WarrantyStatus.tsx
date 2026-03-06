@@ -22,14 +22,14 @@ export default function WarrantyStatus({ status }: WarrantyStatusProps) {
           title: "text-amber-900",
           text: "text-amber-800",
           badge: "bg-amber-600 text-white",
-          label: "Garantie Ã  traiter sans attendre",
+          label: "Garantie à traiter sans attendre",
         }
     : {
         wrapper: "border-rose-200 bg-rose-50",
         title: "text-rose-900",
         text: "text-rose-800",
         badge: "bg-rose-700 text-white",
-        label: "Garantie probablement expirÃ©e",
+        label: "Garantie probablement expirée",
       };
 
   return (
@@ -53,7 +53,7 @@ export default function WarrantyStatus({ status }: WarrantyStatusProps) {
             <p className="mt-1 font-semibold">{formatDateFR(status.purchaseDate)}</p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Fin estimÃ©e</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Fin estimée</p>
             <p className="mt-1 font-semibold">{formatDateFR(status.warrantyEndDate)}</p>
           </div>
           {status.isUnderWarranty && (
@@ -66,9 +66,9 @@ export default function WarrantyStatus({ status }: WarrantyStatusProps) {
       </div>
 
       <p className="mt-4 text-xs leading-6 text-[var(--color-text-muted)]">
-        Estimation indicative basÃ©e sur la date d&apos;achat. La date exacte de dÃ©livrance du bien ou
-        certaines circonstances particuliÃ¨res peuvent modifier l&apos;analyse. En cas de doute sÃ©rieux,
-        fais vÃ©rifier ton dossier.
+        Estimation indicative basée sur la date d&apos;achat. La date exacte de délivrance du bien ou
+        certaines circonstances particulières peuvent modifier l&apos;analyse. En cas de doute sérieux,
+        fais vérifier ton dossier.
       </p>
     </div>
   );
