@@ -86,23 +86,23 @@ const processSteps = [
 export default function HomePage() {
   return (
     <>
-      <section className="hero-surface relative overflow-hidden py-16 sm:py-24">
+      <section className="hero-surface relative overflow-hidden py-10 sm:py-16 lg:py-24">
         <div className="absolute inset-0 hero-grid opacity-50" />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.12fr_0.88fr] lg:gap-12 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-3 rounded-full border border-[var(--color-border-strong)] bg-white/80 px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] shadow-sm backdrop-blur">
+            <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-[var(--color-border-strong)] bg-white/80 px-4 py-2 text-xs font-medium text-[var(--color-text-muted)] shadow-sm backdrop-blur sm:text-sm">
               <span className="h-2 w-2 rounded-full bg-[var(--color-secondary)]" />
               Gratuit, sans inscription, pensé pour être opposable au vendeur
             </div>
 
-            <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-4xl text-[2.7rem] font-semibold leading-[0.98] tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
               Votre appareil tombe en panne ?
               <span className="mt-2 block text-[var(--color-primary)]">
                 Faites partir un mail solide avant de repayer.
               </span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-soft)] sm:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--color-text-soft)] sm:text-xl sm:leading-8">
               Repair Copilot vérifie votre fenêtre de garantie légale de conformité
               et génère un mail de réclamation prêt à envoyer, avec les articles de
               loi déjà formulés proprement.
@@ -135,19 +135,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="lg:pt-8">
-            <div className="panel-dark rounded-[28px] p-6 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.7)] sm:p-8">
+          <div className="lg:pt-6">
+            <div className="panel-dark rounded-[28px] p-5 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.7)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-highlight)]">
                 Aperçu du résultat
               </p>
-              <div className="mt-5 rounded-3xl border border-white/10 bg-white/95 p-5 shadow-inner">
+              <div className="mt-5 rounded-[26px] border border-white/10 bg-white/95 p-4 shadow-inner sm:p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
                   Objet
                 </p>
                 <p className="mt-2 text-sm font-semibold text-[var(--color-text)]">
                   Mise en oeuvre de la garantie légale de conformité pour mon lave-linge Bosch
                 </p>
-                <div className="mt-5 rounded-2xl bg-[var(--color-bg-alt)] p-4 text-sm leading-7 text-[var(--color-text-soft)]">
+                <div className="mt-5 rounded-2xl bg-[var(--color-bg-alt)] p-4 text-sm leading-7 text-[var(--color-text-soft)] sm:p-5">
                   <p>Bonjour,</p>
                   <p className="mt-3">
                     Je vous contacte au sujet d&apos;un lave-linge Bosch acheté le 12 avril 2025
