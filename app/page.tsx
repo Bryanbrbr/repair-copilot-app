@@ -81,7 +81,7 @@ const processSteps = [
   {
     number: "03",
     title: "Copiez et envoyez",
-    text: "Vous récupérez un objet, un corps de mail, une relance possible et la liste des pièces recommandées ? joindre.",
+    text: "Vous récupérez un objet, un corps de mail, une relance possible et la liste des pièces recommandées à joindre.",
   },
 ];
 
@@ -297,7 +297,7 @@ export default function HomePage() {
                   Ce que les visiteurs cherchent en pratique
                 </h2>
                 <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
-                  La vraie demande n&apos;est pas &quot;explique-moi la loi&quot;. C&apos;est plut?t &quot;dis-moi quoi envoyer et ? qui&quot;. Le site doit donc couvrir les objections les plus fr?quentes.
+                  La vraie demande n&apos;est pas &quot;explique-moi la loi&quot;. C&apos;est plutôt &quot;dis-moi quoi envoyer et à qui&quot;. Le site doit donc couvrir les objections les plus fréquentes.
                 </p>
               </div>
               {caseSnapshots.map((item) => (
@@ -399,10 +399,10 @@ export default function HomePage() {
             <div className="max-w-3xl">
               <p className="eyebrow">Lectures utiles</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
-                Les contenus qui r?pondent aux vraies objections avant d&apos;envoyer
+                Les contenus qui répondent aux vraies objections avant d&apos;envoyer
               </h2>
               <p className="mt-4 text-lg leading-8 text-[var(--color-text-soft)]">
-                Ces articles servent ? lever les h?sitations les plus fr?quentes : qui contacter, quoi joindre, et quoi faire quand l&apos;appareil a moins de deux ans.
+                Ces articles servent à lever les hésitations les plus fréquentes : qui contacter, quoi joindre, et quoi faire quand l&apos;appareil a moins de deux ans.
               </p>
             </div>
             <Link
@@ -426,7 +426,7 @@ export default function HomePage() {
                 <h3 className="mt-3 text-xl font-semibold text-[var(--color-text)]">{post.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--color-text-soft)]">{post.description}</p>
                 <span className="mt-4 inline-flex text-sm font-semibold text-[var(--color-primary)]">
-                  Lire l&apos;article ?
+                  Lire l&apos;article →
                 </span>
               </Link>
             ))}

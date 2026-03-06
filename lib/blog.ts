@@ -783,7 +783,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         content:
-          "Si vous ne savez pas comment formuler tout cela proprement, utilisez un mail structur? d?s le premier contact. C'est souvent ce qui fait la diff?rence entre une discussion floue et une vraie prise en charge.",
+          "Si vous ne savez pas comment formuler tout cela proprement, utilisez un mail structuré dès le premier contact. C'est souvent ce qui fait la différence entre une discussion floue et une vraie prise en charge.",
         variant: "tip",
       },
     ],
@@ -791,10 +791,10 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Mon appareil a 23 mois, est-ce encore couvert ?",
         answer:
-          "Oui, si l'achat date de moins de 24 mois pour un appareil neuf, vous êtes normalement encore dans la p?riode classique de la garantie légale de conformité.",
+          "Oui, si l'achat date de moins de 24 mois pour un appareil neuf, vous êtes normalement encore dans la période classique de la garantie légale de conformité.",
       },
       {
-        question: "Je n'ai plus la facture, suis-je bloqu? ?",
+        question: "Je n'ai plus la facture, suis-je bloqué ?",
         answer:
           "Non. Toute preuve d'achat datée peut aider : ticket, relevé bancaire, confirmation de commande ou relevé de carte bancaire.",
       },
@@ -819,7 +819,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content:
-          "C'est l'une des réponses les plus fréquentes : ? voyez avec le fabricant ?. En pratique, cela sert souvent à faire sortir le dossier du bon cadre. Pourtant, si vous invoquez la garantie légale de conformité, c'est bien le vendeur qui reste votre interlocuteur principal.",
+          "C'est l'une des réponses les plus fréquentes : « voyez avec le fabricant ». En pratique, cela sert souvent à faire sortir le dossier du bon cadre. Pourtant, si vous invoquez la garantie légale de conformité, c'est bien le vendeur qui reste votre interlocuteur principal.",
       },
       {
         type: "heading",
@@ -829,7 +829,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content:
-          "La garantie légale de conformité est attachée ? la vente. Autrement dit, c'est le professionnel qui vous a vendu le bien qui doit répondre d'un défaut de conformité, pas le fabricant qui a conçu l'appareil. Le fabricant peut intervenir techniquement, mais cela ne déplace pas la responsabilité juridique.",
+          "La garantie légale de conformité est attachée à la vente. Autrement dit, c'est le professionnel qui vous a vendu le bien qui doit répondre d'un défaut de conformité, pas le fabricant qui a conçu l'appareil. Le fabricant peut intervenir techniquement, mais cela ne déplace pas la responsabilité juridique.",
       },
       {
         type: "heading",
@@ -870,10 +870,10 @@ export const blogPosts: BlogPost[] = [
     slug: "justificatifs-a-joindre-reclamation-garantie",
     title: "Quels justificatifs joindre à une réclamation de garantie ?",
     description:
-      "Facture, ticket, photo de la panne, numéro de série : voici les pièces les plus utiles ? joindre pour donner du poids à votre réclamation sans noyer le vendeur.",
+      "Facture, ticket, photo de la panne, numéro de série : voici les pièces les plus utiles à joindre pour donner du poids à votre réclamation sans noyer le vendeur.",
     seoKeywords: [
       "justificatifs garantie légale",
-      "pièces ? joindre réclamation garantie",
+      "pièces à joindre réclamation garantie",
       "facture garantie appareil",
       "preuve achat garantie",
     ],
@@ -923,7 +923,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Dois-je joindre des photos de la panne ?",
         answer:
-          "Oui si elles sont parlantes. Une photo d'écran cassé, de fuite, de code erreur ou une courte vidéo peut aider le vendeur ? comprendre la situation rapidement.",
+          "Oui si elles sont parlantes. Une photo d'écran cassé, de fuite, de code erreur ou une courte vidéo peut aider le vendeur à comprendre la situation rapidement.",
       },
       {
         question: "Je n'ai que mon relevé bancaire, est-ce utile ?",
@@ -951,7 +951,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content:
-          "Quand un téléphone commence ? buguer, ? perdre brutalement sa batterie ou ? ne plus s'allumer après un an, beaucoup de personnes pensent que c'est fichu parce que la garantie constructeur de 12 mois est terminée. C'est justement là qu'il faut distinguer garantie commerciale et garantie légale.",
+          "Quand un téléphone commence à buguer, à perdre brutalement sa batterie ou à ne plus s'allumer après un an, beaucoup de personnes pensent que c'est fichu parce que la garantie constructeur de 12 mois est terminée. C'est justement là qu'il faut distinguer garantie commerciale et garantie légale.",
       },
       {
         type: "heading",
@@ -994,7 +994,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "La batterie est-elle toujours considérée comme une pièce d'usure ?",
         answer:
-          "Pas automatiquement. Une dégradation anormalement rapide ou prématurée peut justifier une réclamation, surtout si elle apparaît tôt et rend l'usage du téléphone tr?s d?grad?.",
+          "Pas automatiquement. Une dégradation anormalement rapide ou prématurée peut justifier une réclamation, surtout si elle apparaît tôt et rend l'usage du téléphone très dégradé.",
       },
     ],
   },
