@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { appliances } from "@/lib/appliances";
 import StructuredData, {
@@ -20,221 +20,268 @@ const homeFAQ = [
   {
     question: "Qu'est-ce que la garantie légale de conformité ?",
     answer:
-      "La garantie légale de conformité est une protection prévue par le Code de la consommation français (articles L217-3 et suivants). Elle oblige le vendeur à réparer ou remplacer tout produit présentant un défaut de conformité dans les 24 mois suivant l'achat, sans frais pour le consommateur.",
+      "La garantie légale de conformité est une protection prévue par le Code de la consommation français, notamment les articles L217-3 et suivants. Elle oblige le vendeur à réparer ou remplacer un produit non conforme pendant 24 mois après l'achat, sans frais pour le consommateur.",
   },
   {
     question: "Dois-je contacter le fabricant ou le vendeur ?",
     answer:
-      "La garantie légale de conformité s'exerce auprès du vendeur, pas du fabricant. C'est le magasin ou le site où vous avez acheté le produit qui est votre interlocuteur légal.",
+      "La garantie légale de conformité s'exerce auprès du vendeur. Même si le fabricant dispose d'un SAV, l'interlocuteur légal reste le magasin ou le site où vous avez acheté le produit.",
   },
   {
-    question:
-      "J'ai perdu ma facture, puis-je quand même faire valoir la garantie ?",
+    question: "J'ai perdu ma facture, puis-je quand même agir ?",
     answer:
-      "Oui. Vous pouvez utiliser un relevé bancaire, une confirmation de commande par email, un ticket de caisse ou tout autre document prouvant l'achat.",
+      "Oui. Un relevé bancaire, un email de confirmation de commande, un ticket de caisse ou tout autre justificatif d'achat peut suffire.",
   },
   {
-    question: "La garantie couvre-t-elle les achats en ligne ?",
+    question: "Le site conserve-t-il mes données ?",
     answer:
-      "Oui, la garantie légale de conformité s'applique de la même manière pour les achats en magasin et en ligne. Les sites e-commerce (Amazon, Cdiscount, Fnac, etc.) sont soumis aux mêmes obligations.",
+      "Non. Le générateur est conçu pour fonctionner directement dans votre navigateur. Les informations saisies servent à produire votre mail et ne nécessitent pas la création d'un compte.",
   },
   {
     question: "Que faire si le vendeur refuse de réparer ?",
     answer:
-      "Vous pouvez envoyer un courrier recommandé, saisir le médiateur de la consommation, contacter une association de consommateurs (UFC-Que Choisir, CLCV), ou saisir le tribunal compétent.",
+      "Vous pouvez envoyer une relance, demander un courrier recommandé, saisir le médiateur de la consommation ou contacter une association de consommateurs comme UFC-Que Choisir ou la CLCV.",
+  },
+];
+
+const trustItems = [
+  "Base juridique issue du Code de la consommation",
+  "Vérification de la période de garantie en quelques secondes",
+  "Mail prêt à copier avec un ton clair et défendable",
+];
+
+const authorityPoints = [
+  {
+    title: "Cadre légal clair",
+    text: "Le contenu s'appuie sur les textes français applicables à la garantie légale de conformité, avec les articles utiles déjà intégrés dans le mail.",
+  },
+  {
+    title: "Aucune friction inutile",
+    text: "Pas de compte, pas de paiement, pas de tunnel artificiel. Vous arrivez, vous vérifiez votre situation, vous repartez avec un courrier exploitable.",
+  },
+  {
+    title: "Orienté action",
+    text: "Le produit ne se contente pas d'expliquer vos droits. Il vous aide à produire un mail sérieux, structuré et immédiatement envoyable.",
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Renseignez votre achat",
+    text: "Type d'appareil, marque, date d'achat, vendeur et votre identité. Le minimum nécessaire pour produire un courrier crédible.",
+  },
+  {
+    number: "02",
+    title: "Décrivez la panne",
+    text: "Vous résumez le dysfonctionnement. Le générateur adapte ensuite la formulation et les références légales à votre situation.",
+  },
+  {
+    number: "03",
+    title: "Copiez et envoyez",
+    text: "Vous récupérez un objet, un corps de mail, une relance possible et la liste des pièces recommandées à joindre.",
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section — orienté résultat */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge confiance */}
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full mb-6">
-            <span>✅</span>
-            <span>100% gratuit · Sans inscription · Basé sur le Code de la consommation</span>
+      <section className="hero-surface relative overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0 hero-grid opacity-50" />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-3 rounded-full border border-[var(--color-border-strong)] bg-white/80 px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] shadow-sm backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[var(--color-secondary)]" />
+              Gratuit, sans inscription, pensé pour être opposable au vendeur
+            </div>
+
+            <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+              Votre appareil tombe en panne ?
+              <span className="mt-2 block text-[var(--color-primary)]">
+                Faites partir un mail solide avant de repayer.
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-soft)] sm:text-xl">
+              Repair Copilot vérifie votre fenêtre de garantie légale de conformité
+              et génère un mail de réclamation prêt à envoyer, avec les articles de
+              loi déjà formulés proprement.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/generateur"
+                className="inline-flex items-center justify-center rounded-2xl bg-[var(--color-secondary)] px-7 py-4 text-base font-semibold text-white shadow-[0_18px_35px_-18px_rgba(11,94,82,0.75)] transition hover:bg-[var(--color-secondary-strong)]"
+              >
+                Vérifier mes droits maintenant
+              </Link>
+              <Link
+                href="/guide"
+                className="inline-flex items-center justify-center rounded-2xl border border-[var(--color-border-strong)] bg-white px-7 py-4 text-base font-semibold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+              >
+                Lire les guides par appareil
+              </Link>
+            </div>
+
+            <div className="mt-8 grid gap-3 text-sm text-[var(--color-text-muted)] sm:grid-cols-3">
+              {trustItems.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-[var(--color-border)] bg-white/75 px-4 py-4 shadow-sm backdrop-blur"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight mb-6">
-            Appareil en panne ?
-            <br />
-            <span className="text-[var(--color-primary)]">
-              Faites valoir votre garantie légale en 30 secondes
-            </span>
-          </h1>
-          <p className="text-lg sm:text-xl text-[var(--color-text-light)] max-w-2xl mx-auto mb-4 leading-relaxed">
-            La loi française vous protège <strong>2 ans</strong> après l&apos;achat.
-            Générez un mail de réclamation professionnel avec les articles de loi,
-            prêt à envoyer au vendeur.
-          </p>
-          <p className="text-base text-[var(--color-text-light)] max-w-xl mx-auto mb-8">
-            Lave-linge, réfrigérateur, TV, smartphone… Ne rachetez pas avant
-            d&apos;avoir vérifié vos droits.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/generateur"
-              className="bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white text-lg font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl"
-            >
-              🔧 Générer mon mail de réclamation
-            </Link>
-            <Link
-              href="/guide"
-              className="bg-white hover:bg-gray-50 text-[var(--color-primary)] text-lg font-semibold px-8 py-4 rounded-xl transition-colors border-2 border-[var(--color-primary)]"
-            >
-              📖 Consulter les guides
-            </Link>
-          </div>
+          <div className="lg:pt-8">
+            <div className="panel-dark rounded-[28px] p-6 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.7)] sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Aperçu du résultat
+              </p>
+              <div className="mt-5 rounded-3xl border border-white/10 bg-white/95 p-5 shadow-inner">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+                  Objet
+                </p>
+                <p className="mt-2 text-sm font-semibold text-[var(--color-text)]">
+                  Mise en oeuvre de la garantie légale de conformité pour mon lave-linge Bosch
+                </p>
+                <div className="mt-5 rounded-2xl bg-[var(--color-bg-alt)] p-4 text-sm leading-7 text-[var(--color-text-soft)]">
+                  <p>Bonjour,</p>
+                  <p className="mt-3">
+                    Je vous contacte au sujet d&apos;un lave-linge Bosch acheté le 12 avril 2025
+                    dans votre enseigne. L&apos;appareil ne démarre plus malgré un usage normal.
+                  </p>
+                  <p className="mt-3">
+                    En application des articles L217-3, L217-7 et L217-11 du Code de la
+                    consommation, je vous demande la mise en conformité du produit sans frais.
+                  </p>
+                </div>
+              </div>
 
-          {/* Social proof */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[var(--color-text-light)]">
-            <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">⚖️</span>
-              <span>Basé sur le <strong>Code de la consommation</strong></span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-gray-300" />
-            <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">🛡️</span>
-              <span><strong>22 types</strong> d&apos;appareils couverts</span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-gray-300" />
-            <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">🔒</span>
-              <span>Données <strong>100% privées</strong></span>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-semibold text-white">30 sec</p>
+                  <p className="mt-1 text-sm text-white/70">pour produire le mail</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-semibold text-white">24 mois</p>
+                  <p className="mt-1 text-sm text-white/70">de garantie légale visée</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-semibold text-white">22+</p>
+                  <p className="mt-1 text-sm text-white/70">familles d&apos;appareils traitées</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Proposition de valeur */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[var(--color-text)] mb-4">
-            Pourquoi utiliser Repair Copilot ?
-          </h2>
-          <p className="text-center text-[var(--color-text-light)] mb-12 max-w-2xl mx-auto">
-            La plupart des consommateurs ignorent qu&apos;ils sont protégés. Nous simplifions
-            tout le processus.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
-              <div className="text-4xl mb-4">⚖️</div>
-              <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
-                Vos droits expliqués simplement
-              </h3>
-              <p className="text-[var(--color-text-light)] leading-relaxed">
-                La garantie légale de conformité vous protège <strong>2 ans</strong> après
-                l&apos;achat. Le vendeur doit réparer ou remplacer sans frais.
-                On vous explique tout, article par article.
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="section-heading mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Pourquoi ce site inspire plus confiance qu&apos;un modèle trouvé au hasard</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+              Un outil de défense consommateur, pas un gadget de formulaire
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-[var(--color-text-soft)]">
+              Le sujet est sensible. Vous écrivez à un vendeur qui peut refuser, temporiser
+              ou vous renvoyer vers le fabricant. Le site doit donc produire un courrier
+              crédible et vous éviter le ton hésitant ou maladroit.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {authorityPoints.map((item) => (
+              <article
+                key={item.title}
+                className="surface-card rounded-[26px] p-7 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.45)]"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-primary)]">
+                  {item.title}
+                </p>
+                <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--color-border)] bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="eyebrow">Méthode</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+                Trois étapes, aucune ambiguïté
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-[var(--color-text-soft)]">
+                Le parcours est court parce que le but n&apos;est pas de vous capturer dans
+                un tunnel. Il est de vous faire sortir avec un message exploitable et une
+                lecture claire de votre position.
               </p>
+              <div className="mt-8 rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-6">
+                <p className="text-sm font-semibold text-[var(--color-text)]">
+                  Ce que vous obtenez à la fin
+                </p>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-text-soft)]">
+                  <li>Un objet de mail prêt à envoyer</li>
+                  <li>Une version de réclamation et une version de relance</li>
+                  <li>La liste des pièces à joindre pour renforcer la demande</li>
+                </ul>
+              </div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
-              <div className="text-4xl mb-4">✉️</div>
-              <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
-                Mail professionnel en 30 secondes
-              </h3>
-              <p className="text-[var(--color-text-light)] leading-relaxed">
-                Un mail personnalisé avec les articles de loi exacts, prêt à
-                copier et envoyer. Choisissez le ton : poli, standard ou ferme.
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-semibold mb-3 text-[var(--color-text)]">
-                Gratuit, sans inscription
-              </h3>
-              <p className="text-[var(--color-text-light)] leading-relaxed">
-                Aucun compte, aucun paiement, aucune donnée collectée.
-                Vos informations restent dans votre navigateur. Rien n&apos;est
-                envoyé à nos serveurs.
-              </p>
+
+            <div className="grid gap-4">
+              {processSteps.map((step) => (
+                <article
+                  key={step.number}
+                  className="surface-card flex gap-5 rounded-[26px] p-6 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.45)]"
+                >
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-lg font-semibold text-white">
+                    {step.number}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-[var(--color-text)]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-base leading-7 text-[var(--color-text-soft)]">
+                      {step.text}
+                    </p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comment ça marche — 3 étapes */}
-      <section className="py-16 bg-[var(--color-bg)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[var(--color-text)] mb-12">
-            Comment ça marche ?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Étape 1 */}
-            <div className="relative flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-md">
-                1
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-[var(--color-text)]">
-                Décrivez votre panne
-              </h3>
-              <p className="text-[var(--color-text-light)]">
-                Appareil, marque, date d&apos;achat, magasin et description du
-                problème. 30 secondes max.
-              </p>
-              {/* Connecteur */}
-              <div className="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-[var(--color-border)]" />
-            </div>
-            {/* Étape 2 */}
-            <div className="relative flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-md">
-                2
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-[var(--color-text)]">
-                Vérifiez votre garantie
-              </h3>
-              <p className="text-[var(--color-text-light)]">
-                On calcule automatiquement si la garantie légale de 2 ans est
-                encore active et on vous explique vos droits.
-              </p>
-              <div className="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-[var(--color-border)]" />
-            </div>
-            {/* Étape 3 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-secondary)] text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-md">
-                3
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-[var(--color-text)]">
-                Copiez et envoyez
-              </h3>
-              <p className="text-[var(--color-text-light)]">
-                Un mail professionnel avec les articles de loi est généré.
-                Copiez-le ou ouvrez-le dans votre messagerie.
-              </p>
-            </div>
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="section-heading mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Couverture</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+              Guides ciblés par type d&apos;appareil
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-[var(--color-text-soft)]">
+              Chaque guide conserve le même angle : comprendre votre levier juridique
+              sans vous perdre dans un jargon inutile.
+            </p>
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/generateur"
-              className="bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white text-lg font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl inline-block"
-            >
-              Commencer maintenant →
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Appareils couverts */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[var(--color-text)] mb-4">
-            Guides par appareil
-          </h2>
-          <p className="text-center text-[var(--color-text-light)] mb-12 max-w-2xl mx-auto">
-            Consultez nos guides dédiés pour comprendre vos droits selon votre
-            type d&apos;appareil en panne.
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {appliances.map((appliance) => (
               <Link
                 key={appliance.slug}
                 href={`/guide/${appliance.slug}`}
-                className="flex flex-col items-center p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] card-hover"
+                className="surface-card flex min-h-32 flex-col items-center justify-center rounded-[22px] border px-4 py-5 text-center transition hover:-translate-y-1"
               >
-                <span className="text-3xl mb-2">{appliance.icon}</span>
-                <span className="text-sm font-medium text-[var(--color-text)] text-center">
+                <span className="text-3xl">{appliance.icon}</span>
+                <span className="mt-3 text-sm font-semibold text-[var(--color-text)]">
                   {appliance.name}
                 </span>
               </Link>
@@ -243,80 +290,68 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ pour SEO */}
-      <section className="py-16 bg-[var(--color-bg)]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[var(--color-text)] mb-12">
-            Questions fréquentes
-          </h2>
-          <div className="space-y-4">
-            {homeFAQ.map((item) => (
-              <details
-                key={item.question}
-                className="bg-white rounded-xl border border-[var(--color-border)] p-6 group card-hover"
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 rounded-[32px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-8 lg:grid-cols-[0.8fr_1.2fr] lg:p-10">
+            <div>
+              <p className="eyebrow">Questions fréquentes</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)]">
+                Ce qu&apos;il faut savoir avant d&apos;envoyer
+              </h2>
+              <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                Les réponses ci-dessous sont là pour réduire l&apos;hésitation et cadrer
+                proprement les cas les plus fréquents.
+              </p>
+            </div>
+            <div className="space-y-4">
+              {homeFAQ.map((item) => (
+                <details
+                  key={item.question}
+                  className="surface-card rounded-[22px] p-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.4)]"
+                >
+                  <summary className="flex list-none items-center justify-between gap-4 text-lg font-semibold text-[var(--color-text)]">
+                    {item.question}
+                    <span className="faq-chevron text-[var(--color-primary)]">+</span>
+                  </summary>
+                  <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                    {item.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="panel-dark rounded-[32px] px-6 py-10 sm:px-10">
+            <p className="eyebrow text-[var(--color-highlight)]">Dernière étape</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Ne laisse pas le vendeur installer le doute à ta place
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/75">
+              Vérifie d&apos;abord ta position, puis envoie un message propre, ferme et
+              défendable. C&apos;est ce que ce site doit faire, et rapidement.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                href="/generateur"
+                className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-base font-semibold text-[var(--color-ink)] transition hover:bg-[var(--color-highlight)]"
               >
-                <summary className="font-semibold text-[var(--color-text)] cursor-pointer list-none flex items-center justify-between">
-                  {item.question}
-                  <span className="text-[var(--color-primary)] faq-chevron ml-4 flex-shrink-0">
-                    ▼
-                  </span>
-                </summary>
-                <p className="mt-4 text-[var(--color-text-light)] leading-relaxed">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Chiffres clés — crédibilité */}
-      <section className="py-12 bg-white border-t border-[var(--color-border)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">2 ans</div>
-              <p className="text-sm text-[var(--color-text-light)] mt-1">de garantie légale minimum</p>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">0 €</div>
-              <p className="text-sm text-[var(--color-text-light)] mt-1">frais de réparation pour vous</p>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">30 sec</div>
-              <p className="text-sm text-[var(--color-text-light)] mt-1">pour générer votre mail</p>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">22+</div>
-              <p className="text-sm text-[var(--color-text-light)] mt-1">types d&apos;appareils couverts</p>
+                Ouvrir le générateur
+              </Link>
+              <Link
+                href="/mentions-legales"
+                className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-4 text-base font-semibold text-white transition hover:bg-white/8"
+              >
+                Vérifier les mentions et sources
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-16 bg-[var(--color-primary)]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Ne laissez pas le vendeur ignorer vos droits
-          </h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Chaque jour qui passe rapproche votre garantie de l&apos;expiration.
-            Agissez maintenant — c&apos;est gratuit et ça prend 30 secondes.
-          </p>
-          <Link
-            href="/generateur"
-            className="bg-white hover:bg-gray-100 text-[var(--color-primary)] text-lg font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg inline-block"
-          >
-            Vérifier mes droits et générer mon mail →
-          </Link>
-          <p className="text-blue-200 text-xs mt-4">
-            Aucune inscription · Aucune donnée collectée · Résultat immédiat
-          </p>
-        </div>
-      </section>
-
-      {/* Structured Data via composants Server */}
       <StructuredData type="WebApplication" data={buildWebAppSchema()} />
       <StructuredData type="FAQPage" data={buildFAQSchema(homeFAQ)} />
     </>

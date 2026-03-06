@@ -8,86 +8,68 @@ interface WarrantyStatusProps {
 }
 
 export default function WarrantyStatus({ status }: WarrantyStatusProps) {
+  const stateClass = status.isUnderWarranty
+    ? status.daysRemaining > 30
+      ? {
+          wrapper: "border-emerald-200 bg-emerald-50",
+          title: "text-emerald-900",
+          text: "text-emerald-800",
+          badge: "bg-emerald-600 text-white",
+          label: "Garantie probablement active",
+        }
+      : {
+          wrapper: "border-amber-200 bg-amber-50",
+          title: "text-amber-900",
+          text: "text-amber-800",
+          badge: "bg-amber-600 text-white",
+          label: "Garantie à traiter sans attendre",
+        }
+    : {
+        wrapper: "border-rose-200 bg-rose-50",
+        title: "text-rose-900",
+        text: "text-rose-800",
+        badge: "bg-rose-700 text-white",
+        label: "Garantie probablement expirée",
+      };
+
   return (
-    <div
-      className={`rounded-xl border-2 p-6 ${
-        status.isUnderWarranty
-          ? status.daysRemaining > 30
-            ? "border-green-200 bg-green-50"
-            : "border-amber-200 bg-amber-50"
-          : "border-red-200 bg-red-50"
-      }`}
-    >
-      <div className="flex items-start gap-3">
-        <span className="text-2xl flex-shrink-0">
-          {status.isUnderWarranty
-            ? status.daysRemaining > 30
-              ? "✅"
-              : "⚠️"
-            : "❌"}
-        </span>
+    <div className={`rounded-[28px] border p-6 ${stateClass.wrapper}`}>
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h3
-            className={`font-semibold text-lg ${
-              status.isUnderWarranty
-                ? status.daysRemaining > 30
-                  ? "text-green-800"
-                  : "text-amber-800"
-                : "text-red-800"
-            }`}
-          >
-            {status.isUnderWarranty
-              ? status.daysRemaining > 30
-                ? "Probablement couvert par la garantie légale"
-                : "Garantie légale bientôt à échéance"
-              : "Garantie probablement expirée"}
+          <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${stateClass.badge}`}>
+            {stateClass.label}
+          </span>
+          <h3 className={`mt-4 text-2xl font-semibold ${stateClass.title}`}>
+            Lecture rapide de votre situation
           </h3>
-          <p className="text-xs text-gray-500 mt-0.5">
-            {status.isUnderWarranty
-              ? "(estimation indicative)"
-              : "(à vérifier selon votre situation)"}
-          </p>
-          <p
-            className={`mt-2 text-sm leading-relaxed ${
-              status.isUnderWarranty
-                ? status.daysRemaining > 30
-                  ? "text-green-700"
-                  : "text-amber-700"
-                : "text-red-700"
-            }`}
-          >
+          <p className={`mt-3 max-w-2xl text-sm leading-7 ${stateClass.text}`}>
             {status.message}
           </p>
-          <div className="mt-3 flex flex-wrap gap-4 text-xs">
-            <span
-              className={`${
-                status.isUnderWarranty ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              <strong>Date d&apos;achat :</strong>{" "}
-              {formatDateFR(status.purchaseDate)}
-            </span>
-            <span
-              className={`${
-                status.isUnderWarranty ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              <strong>Fin de garantie :</strong>{" "}
-              {formatDateFR(status.warrantyEndDate)}
-            </span>
-            {status.isUnderWarranty && (
-              <span className="text-green-600">
-                <strong>Jours restants :</strong> {status.daysRemaining}
-              </span>
-            )}
+        </div>
+
+        <div className="grid min-w-[220px] gap-3 rounded-[24px] border border-white/60 bg-white/70 p-4 text-sm text-[var(--color-text)]">
+          <div>
+            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Date d&apos;achat</p>
+            <p className="mt-1 font-semibold">{formatDateFR(status.purchaseDate)}</p>
           </div>
-          <p className="mt-3 text-xs text-gray-500 italic">
-            Estimation indicative basée sur la date d&apos;achat. La date de
-            délivrance effective du bien peut varier. En cas de doute,
-            consultez un professionnel du droit.
-          </p>
+          <div>
+            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Fin estimée</p>
+            <p className="mt-1 font-semibold">{formatDateFR(status.warrantyEndDate)}</p>
+          </div>
+          {status.isUnderWarranty && (
+            <div>
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Jours restants</p>
+              <p className="mt-1 font-semibold">{status.daysRemaining}</p>
+            </div>
+          )}
         </div>
       </div>
+
+      <p className="mt-4 text-xs leading-6 text-[var(--color-text-muted)]">
+        Estimation indicative basée sur la date d&apos;achat. La date exacte de délivrance du bien ou
+        certaines circonstances particulières peuvent modifier l&apos;analyse. En cas de doute sérieux,
+        fais vérifier ton dossier.
+      </p>
     </div>
   );
 }

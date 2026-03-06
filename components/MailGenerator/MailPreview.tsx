@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import type { GeneratedMail } from "@/lib/mail-templates";
@@ -54,106 +54,80 @@ export default function MailPreview({ mail }: MailPreviewProps) {
     URL.revokeObjectURL(url);
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
-    <div className="bg-white rounded-xl border border-[var(--color-border)] shadow-sm overflow-hidden">
-      {/* Header */}
-      <div className="bg-[var(--color-primary)] px-6 py-4 no-print">
-        <div className="flex items-center justify-between">
-          <h3 className="text-white font-semibold text-lg flex items-center gap-2">
-            ✉️{" "}
-            {mail.type === "reclamation"
-              ? "Mail de réclamation"
-              : "Mail de relance"}
-          </h3>
+    <div className="overflow-hidden rounded-[30px] border border-[var(--color-border)] bg-white shadow-[0_24px_50px_-38px_rgba(15,23,42,0.42)]">
+      <div className="panel-dark px-6 py-5 no-print">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-highlight)]">
+              {mail.type === "reclamation" ? "Réclamation initiale" : "Relance"}
+            </p>
+            <h3 className="mt-2 text-xl font-semibold text-white">
+              Message prêt à envoyer
+            </h3>
+          </div>
           <button
             onClick={handleCopyAll}
-            className="bg-white/20 hover:bg-white/30 text-white text-sm px-4 py-2 rounded-lg transition-colors font-medium"
+            className="rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-[var(--color-ink)] transition hover:bg-[var(--color-highlight)]"
           >
-            {copied ? "✓ Copié !" : "Tout copier"}
+            {copied ? "Copié" : "Tout copier"}
           </button>
         </div>
       </div>
 
-      {/* Objet du mail */}
-      <div className="px-6 py-4 border-b border-[var(--color-border)] bg-gray-50">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            <span className="text-xs font-semibold text-[var(--color-text-light)] uppercase tracking-wider">
-              Objet :
-            </span>
-            <p className="text-sm text-[var(--color-text)] font-medium mt-1 break-words">
-              {mail.subject}
+      <div className="border-b border-[var(--color-border)] bg-[var(--color-bg-alt)] px-6 py-5">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+              Objet
             </p>
+            <p className="mt-2 text-sm font-semibold text-[var(--color-text)]">{mail.subject}</p>
           </div>
           <button
             onClick={handleCopySubject}
-            className="text-xs text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] font-medium flex-shrink-0 no-print"
+            className="text-xs font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-strong)]"
           >
-            {copiedSubject ? "✓ Copié" : "Copier l'objet"}
+            {copiedSubject ? "Copié" : "Copier l'objet"}
           </button>
         </div>
       </div>
 
-      {/* Corps du mail — style "feuille de papier" */}
       <div className="px-6 py-6 print-letter">
-        <div className="bg-white border border-gray-100 rounded-lg shadow-inner p-6 sm:p-8">
-          <pre className="whitespace-pre-wrap font-sans text-sm text-[var(--color-text)] leading-relaxed">
+        <div className="rounded-[24px] border border-[var(--color-border)] bg-white p-6 shadow-inner sm:p-8">
+          <pre className="whitespace-pre-wrap text-sm leading-7 text-[var(--color-text)]">
             {mail.body}
           </pre>
         </div>
       </div>
 
-      {/* Actions principales */}
-      <div className="px-6 py-5 bg-gray-50 border-t border-[var(--color-border)] no-print">
-        {/* Bouton principal */}
+      <div className="border-t border-[var(--color-border)] bg-[var(--color-bg-alt)] px-6 py-5 no-print">
         <button
           onClick={handleCopyAll}
-          className="w-full bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] text-white font-semibold py-4 px-6 rounded-xl transition-all text-center text-lg shadow-lg hover:shadow-xl mb-3"
+          className="mb-3 w-full rounded-2xl bg-[var(--color-secondary)] px-6 py-4 text-lg font-semibold text-white transition hover:bg-[var(--color-secondary-strong)]"
         >
-          {copied ? "✓ Lettre copiée !" : "📋 Copier la lettre"}
+          {copied ? "Lettre copiée" : "Copier la lettre complète"}
         </button>
 
-        {/* Boutons secondaires — grille */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           <button
             onClick={handleCopyBody}
-            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
+            className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
-            {copied ? "✓ Copié" : "📄 Corps seul"}
+            Copier le corps
           </button>
           <a
             href={`mailto:?subject=${encodeURIComponent(mail.subject)}&body=${encodeURIComponent(mail.body)}`}
-            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
+            className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-center text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
-            📧 Messagerie
+            Ouvrir la messagerie
           </a>
           <button
             onClick={handleDownloadTxt}
-            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
+            className="rounded-2xl border border-[var(--color-border)] bg-white px-3 py-3 text-xs font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
-            📥 Télécharger .txt
-          </button>
-          <button
-            onClick={handlePrint}
-            className="bg-white hover:bg-gray-100 text-[var(--color-text)] font-medium py-3 px-3 rounded-lg transition-colors text-center text-xs border border-[var(--color-border)]"
-          >
-            🖨️ Imprimer / PDF
+            Télécharger en .txt
           </button>
         </div>
-      </div>
-
-      {/* Conseil */}
-      <div className="px-6 py-4 bg-blue-50 border-t border-blue-100 no-print">
-        <p className="text-xs text-blue-700 leading-relaxed">
-          <strong>💡 Conseil :</strong> Pour un maximum d&apos;efficacité,
-          envoyez ce mail depuis une adresse email professionnelle ou sérieuse.
-          Conservez une copie de tous vos échanges. Si vous n&apos;obtenez pas de
-          réponse sous 15 jours, utilisez le mail de relance.
-        </p>
       </div>
     </div>
   );

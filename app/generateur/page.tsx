@@ -24,102 +24,96 @@ export default function GenerateurPage() {
   return (
     <>
       <section className="py-12 sm:py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* En-tête */}
-          <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-4">
-              Générez votre mail de réclamation garantie
-            </h1>
-            <p className="text-lg text-[var(--color-text-light)] max-w-2xl mx-auto leading-relaxed">
-              Remplissez le formulaire, on génère un mail professionnel avec les{" "}
-              <strong>articles de loi</strong> adaptés à votre situation.
-              Prêt à copier et envoyer en 30 secondes.
-            </p>
-            {/* Micro-copy rassurante */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-4 text-xs text-[var(--color-text-light)]">
-              <span className="flex items-center gap-1">🔒 Aucune donnée stockée</span>
-              <span className="flex items-center gap-1">⚡ Résultat instantané</span>
-              <span className="flex items-center gap-1">📋 3 tons disponibles</span>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div>
+              <p className="eyebrow">Générateur</p>
+              <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-[var(--color-text)] sm:text-5xl">
+                Produis un mail que le vendeur devra prendre au sérieux
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--color-text-soft)]">
+                Tu renseignes l&apos;achat, la panne et le ton souhaité. Le site calcule une
+                estimation de garantie puis rédige un message réutilisable immédiatement.
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="surface-card rounded-[24px] p-5">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">Aucune donnée stockée</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-soft)]">
+                    Le formulaire est conçu pour être utilisé sans compte ni espace personnel.
+                  </p>
+                </div>
+                <div className="surface-card rounded-[24px] p-5">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">Réclamation + relance</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-soft)]">
+                    Tu repars avec un premier mail et une version de relance si le vendeur traîne.
+                  </p>
+                </div>
+                <div className="surface-card rounded-[24px] p-5">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">Articles de loi intégrés</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-soft)]">
+                    Les références utiles sont déjà rédigées, sans jargon inutile dans le texte.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="panel-dark rounded-[30px] p-6 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.75)] sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Avant de commencer
+              </p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight">Prépare simplement ces éléments</h2>
+              <ul className="mt-6 space-y-4 text-sm leading-7 text-white/78">
+                <li>Le type d&apos;appareil, la marque et le vendeur.</li>
+                <li>La date d&apos;achat et, si possible, un justificatif.</li>
+                <li>Une description factuelle de la panne, sans roman ni agressivité.</li>
+              </ul>
+              <div className="mt-6 rounded-[24px] border border-white/10 bg-white/6 p-5">
+                <p className="text-sm font-semibold text-white">Conseil de fond</p>
+                <p className="mt-2 text-sm leading-6 text-white/74">
+                  Le meilleur levier n&apos;est pas d&apos;en faire trop. Il faut surtout un message net,
+                  documenté et juridiquement propre. C&apos;est ce que ce formulaire vise à produire.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Formulaire */}
-          <MailGeneratorForm />
+          <div className="mt-10">
+            <MailGeneratorForm />
+          </div>
 
-          {/* Disclaimer */}
-          <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-[var(--color-border)]">
-            <p className="text-xs text-[var(--color-text-light)] leading-relaxed">
-              <strong>⚠️ Avertissement :</strong> {WARRANTY_DISCLAIMER}
+          <div className="mt-8 rounded-[24px] border border-[var(--color-border)] bg-white px-5 py-4 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.35)]">
+            <p className="text-xs leading-6 text-[var(--color-text-muted)]">
+              <strong>Avertissement :</strong> {WARRANTY_DISCLAIMER}
             </p>
           </div>
 
-          {/* Contenu SEO */}
-          <div className="mt-12 space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold text-[var(--color-text)] mb-4">
-                Pourquoi envoyer un mail de réclamation ?
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <div className="surface-card rounded-[28px] p-7">
+              <p className="eyebrow">Pourquoi ça marche</p>
+              <h2 className="mt-3 text-2xl font-semibold text-[var(--color-text)]">
+                Un vendeur traite mieux un message cadré qu&apos;une demande vague
               </h2>
-              <p className="text-[var(--color-text-light)] leading-relaxed mb-4">
-                Lorsqu&apos;un appareil tombe en panne dans les 2 ans suivant
-                l&apos;achat, la loi française vous protège grâce à la garantie
-                légale de conformité. Le vendeur est tenu de réparer ou remplacer
-                le produit sans aucun frais pour vous.
-              </p>
-              <p className="text-[var(--color-text-light)] leading-relaxed">
-                Un mail de réclamation bien rédigé, citant les bons articles de
-                loi, montre au vendeur que vous connaissez vos droits. Cela
-                accélère considérablement le traitement de votre demande.
+              <p className="mt-4 text-base leading-7 text-[var(--color-text-soft)]">
+                Lorsque tu rappelles clairement la date d&apos;achat, la nature de la panne et les
+                articles applicables, tu évites une partie des réponses d&apos;évitement. Tu montres
+                surtout que ta demande est sérieuse et documentée.
               </p>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-bold text-[var(--color-text)] mb-4">
-                Que dit la loi ?
-              </h2>
-              <ul className="space-y-3 text-[var(--color-text-light)]">
-                <li className="flex gap-2">
-                  <span className="text-[var(--color-primary)] font-bold flex-shrink-0">
-                    →
-                  </span>
-                  <span>
-                    <strong>Article L217-3 :</strong> Le vendeur délivre un bien
-                    conforme et répond des défauts de conformité.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-[var(--color-primary)] font-bold flex-shrink-0">
-                    →
-                  </span>
-                  <span>
-                    <strong>Article L217-7 :</strong> Les défauts apparaissant
-                    dans les 24 mois sont présumés exister dès l&apos;achat.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-[var(--color-primary)] font-bold flex-shrink-0">
-                    →
-                  </span>
-                  <span>
-                    <strong>Article L217-8 :</strong> Vous choisissez entre
-                    réparation et remplacement.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-[var(--color-primary)] font-bold flex-shrink-0">
-                    →
-                  </span>
-                  <span>
-                    <strong>Article L217-11 :</strong> La mise en conformité est
-                    sans aucun frais pour le consommateur.
-                  </span>
-                </li>
+            <div className="surface-card rounded-[28px] p-7">
+              <p className="eyebrow">Textes clés</p>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-text-soft)]">
+                <li><strong>Article L217-3 :</strong> le vendeur répond des défauts de conformité.</li>
+                <li><strong>Article L217-7 :</strong> pendant 24 mois, le défaut est présumé antérieur.</li>
+                <li><strong>Article L217-8 :</strong> réparation ou remplacement selon le cadre légal.</li>
+                <li><strong>Article L217-11 :</strong> la mise en conformité s&apos;effectue sans frais.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

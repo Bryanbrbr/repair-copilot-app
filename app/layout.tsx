@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+﻿import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_URL } from "@/lib/config";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
 });
@@ -68,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={inter.className}>
+    <html lang="fr" className={manrope.className}>
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <Header />
         <main className="flex-1">{children}</main>
