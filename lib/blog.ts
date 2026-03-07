@@ -915,7 +915,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         content:
-          "Si vous n'avez pas la facture, n'abandonnez pas. Un relevé bancaire ou un email de confirmation de commande suffit souvent ? établir la date d'achat.",
+          "Si vous n'avez pas la facture, n'abandonnez pas. Un relevé bancaire ou un email de confirmation de commande suffit souvent à établir la date d'achat.",
         variant: "info",
       },
     ],
@@ -961,7 +961,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content:
-          "La garantie constructeur peut être limitée ? 12 mois. Mais la garantie légale de conformité sur un bien neuf dure généralement 24 mois. Donc un téléphone acheté il y a 13, 14 ou 18 mois peut encore être couvert face au vendeur.",
+          "La garantie constructeur peut être limitée à 12 mois. Mais la garantie légale de conformité sur un bien neuf dure généralement 24 mois. Donc un téléphone acheté il y a 13, 14 ou 18 mois peut encore être couvert face au vendeur.",
       },
       {
         type: "heading",
