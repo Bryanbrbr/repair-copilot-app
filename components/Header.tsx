@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import HeaderSearch from "@/components/HeaderSearch";
@@ -19,8 +20,15 @@ export default function Header() {
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-[76px] items-center justify-between gap-3 py-3 sm:gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3 text-[var(--color-text)]">
-            <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-lg font-bold text-white shadow-[0_16px_28px_-18px_rgba(23,59,122,0.9)] sm:h-12 sm:w-12">
-              RC
+            <span className="flex h-11 w-11 flex-shrink-0 overflow-hidden rounded-2xl bg-[var(--color-primary)] shadow-[0_16px_28px_-18px_rgba(23,59,122,0.9)] sm:h-12 sm:w-12">
+              <Image
+                src="/apple-touch-icon.png"
+                alt="Repair Copilot"
+                width={48}
+                height={48}
+                className="h-full w-full object-cover"
+                priority
+              />
             </span>
             <div className="min-w-0">
               <span className="block truncate text-sm font-semibold tracking-tight sm:text-base">
