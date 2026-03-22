@@ -119,6 +119,18 @@ export default async function ProblemPage({
               </span>
             </div>
 
+            {problem.replacementAdvice && (
+              <div className="mt-4 flex gap-3 items-start bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <span className="text-amber-600 font-bold flex-shrink-0 text-lg">💡</span>
+                <div>
+                  <h3 className="font-semibold text-amber-900 text-sm">Réparer ou remplacer ?</h3>
+                  <p className="text-sm text-amber-700 mt-1 leading-relaxed">
+                    {problem.replacementAdvice}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Summary line */}
             <p className="mt-6 text-lg font-medium text-[var(--color-text)] leading-relaxed bg-[var(--color-bg)] border border-[var(--color-border)] rounded-xl p-4">
               {pageData.summaryLine}

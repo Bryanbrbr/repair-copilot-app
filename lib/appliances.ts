@@ -4,6 +4,7 @@ export interface CommonProblem {
   description: string;
   selfFixable: boolean;
   estimatedRepairCost: string;
+  replacementAdvice?: string;
 }
 
 export interface Appliance {
@@ -249,6 +250,7 @@ export const appliances: Appliance[] = [
           "Résistance grillée, thermostat défectueux ou carte électronique en panne.",
         selfFixable: false,
         estimatedRepairCost: "80 à 300 €",
+        replacementAdvice: "Pour un micro-ondes (neuf dès 50 €), le remplacement est souvent plus économique. Pour un four encastrable (300-800 €), la réparation reste généralement rentable.",
       },
       {
         slug: "porte-ne-ferme-plus",
@@ -264,7 +266,7 @@ export const appliances: Appliance[] = [
         description:
           "Moteur du plateau en panne ou entraîneur cassé.",
         selfFixable: true,
-        estimatedRepairCost: "20 à 80 €",
+        estimatedRepairCost: "15 à 50 €",
       },
       {
         slug: "affichage-ne-repond-plus",
@@ -272,7 +274,8 @@ export const appliances: Appliance[] = [
         description:
           "Carte de commande défectueuse ou problème de connectique.",
         selfFixable: false,
-        estimatedRepairCost: "100 à 250 €",
+        estimatedRepairCost: "80 à 200 €",
+        replacementAdvice: "Pour un micro-ondes, le coût de remplacement de la carte dépasse souvent le prix d'un appareil neuf. Privilégiez le remplacement sauf pour un four encastrable.",
       },
     ],
     repairTips: [
@@ -396,7 +399,8 @@ export const appliances: Appliance[] = [
         description:
           "Problème de batterie (sans fil), câble endommagé ou moteur en panne.",
         selfFixable: false,
-        estimatedRepairCost: "50 à 200 €",
+        estimatedRepairCost: "50 à 150 €",
+        replacementAdvice: "Pour un aspirateur d'entrée de gamme (60-120 €), le remplacement est souvent plus avantageux. Pour un modèle haut de gamme (Dyson, Miele), la réparation peut valoir le coup.",
       },
       {
         slug: "bruit-excessif",
@@ -466,7 +470,8 @@ export const appliances: Appliance[] = [
         description:
           "Dalle LCD/OLED endommagée ou carte de traitement vidéo défectueuse.",
         selfFixable: false,
-        estimatedRepairCost: "150 à 500 €",
+        estimatedRepairCost: "150 à 400 €",
+        replacementAdvice: "Le remplacement de la dalle représente souvent 50 à 70 % du prix d'une TV neuve. Pour les modèles d'entrée de gamme, le remplacement de la TV est généralement plus économique.",
       },
       {
         slug: "pas-de-son",
@@ -666,7 +671,7 @@ export const appliances: Appliance[] = [
         description:
           "Circuit d'eau entartré, pompe défectueuse ou bloc infuseur bloqué.",
         selfFixable: true,
-        estimatedRepairCost: "30 à 150 €",
+        estimatedRepairCost: "20 à 100 €",
       },
       {
         slug: "fuite-eau",
@@ -682,7 +687,8 @@ export const appliances: Appliance[] = [
         description:
           "Carte électronique en panne, interrupteur défectueux ou problème d'alimentation.",
         selfFixable: false,
-        estimatedRepairCost: "50 à 200 €",
+        estimatedRepairCost: "50 à 150 €",
+        replacementAdvice: "Pour une machine à capsules (Nespresso, Dolce Gusto) achetée entre 50 et 120 €, le remplacement est souvent plus judicieux. Pour un expresso broyeur (300-800 €), la réparation reste rentable.",
       },
       {
         slug: "cafe-froid",
@@ -690,7 +696,8 @@ export const appliances: Appliance[] = [
         description:
           "Résistance de chauffe défectueuse, thermostat en panne ou entartrage sévère.",
         selfFixable: true,
-        estimatedRepairCost: "30 à 120 €",
+        estimatedRepairCost: "30 à 100 €",
+        replacementAdvice: "Pour les machines à capsules d'entrée de gamme, si la résistance est en cause, le remplacement de l'appareil est souvent plus économique.",
       },
     ],
     repairTips: [
@@ -807,7 +814,8 @@ export const appliances: Appliance[] = [
         description:
           "Magnétron défectueux, fusible thermique grillé ou condensateur haute tension en panne empêchant la production de micro-ondes.",
         selfFixable: false,
-        estimatedRepairCost: "80 à 250 €",
+        estimatedRepairCost: "60 à 150 €",
+        replacementAdvice: "Un micro-ondes neuf coûte entre 50 et 150 €. La réparation du magnétron dépasse souvent le prix d'un appareil neuf : le remplacement est généralement plus économique.",
       },
       {
         slug: "plateau-ne-tourne-plus",
@@ -815,7 +823,7 @@ export const appliances: Appliance[] = [
         description:
           "Moteur d'entraînement en panne, coupleur cassé ou guide rouleau endommagé bloquant la rotation.",
         selfFixable: true,
-        estimatedRepairCost: "20 à 80 €",
+        estimatedRepairCost: "15 à 50 €",
       },
       {
         slug: "etincelles-interieur",
@@ -823,7 +831,7 @@ export const appliances: Appliance[] = [
         description:
           "Plaque mica abîmée, paroi intérieure endommagée ou résidu alimentaire carbonisé provoquant des arcs électriques.",
         selfFixable: true,
-        estimatedRepairCost: "10 à 60 €",
+        estimatedRepairCost: "5 à 30 €",
       },
       {
         slug: "porte-ne-ferme-plus",
@@ -831,7 +839,8 @@ export const appliances: Appliance[] = [
         description:
           "Loquet de sécurité cassé, charnière usée ou micro-interrupteur de porte défectueux empêchant le démarrage.",
         selfFixable: false,
-        estimatedRepairCost: "30 à 120 €",
+        estimatedRepairCost: "20 à 80 €",
+        replacementAdvice: "Si le coût de réparation approche 50-80 €, il est souvent préférable de racheter un micro-ondes neuf (dès 50 €).",
       },
     ],
     repairTips: [
@@ -967,7 +976,8 @@ export const appliances: Appliance[] = [
         description:
           "Carte mère défectueuse, connecteur de charge endommagé ou batterie complètement déchargée et incapable de reprendre une charge.",
         selfFixable: false,
-        estimatedRepairCost: "100 à 350 €",
+        estimatedRepairCost: "80 à 250 €",
+        replacementAdvice: "Pour une tablette d'entrée de gamme (150-250 €), une réparation de carte mère n'est généralement pas rentable. Pour un iPad ou une tablette haut de gamme, comparez le coût de réparation au prix d'un modèle reconditionné.",
       },
       {
         slug: "ralentissements-bugs",
@@ -1103,7 +1113,8 @@ export const appliances: Appliance[] = [
         description:
           "Dalle tactile défaillante, affichage figé, pixels morts ou écran qui reste noir malgré la charge de l'appareil.",
         selfFixable: false,
-        estimatedRepairCost: "80 à 250 €",
+        estimatedRepairCost: "80 à 200 €",
+        replacementAdvice: "Pour une montre connectée d'entrée ou milieu de gamme (150-250 €), le coût de remplacement de l'écran peut se rapprocher du prix d'un modèle neuf. Comparez avant de réparer.",
       },
       {
         slug: "capteurs-defaillants",
@@ -1111,7 +1122,8 @@ export const appliances: Appliance[] = [
         description:
           "Capteur cardiaque, oxymètre, accéléromètre ou GPS fournissant des données erronées ou ne fonctionnant plus du tout.",
         selfFixable: false,
-        estimatedRepairCost: "60 à 200 €",
+        estimatedRepairCost: "60 à 150 €",
+        replacementAdvice: "Les capteurs sont souvent intégrés à la carte mère. Si la réparation nécessite un remplacement complet, envisagez un modèle plus récent.",
       },
       {
         slug: "ne-se-connecte-plus",

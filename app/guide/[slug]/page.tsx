@@ -158,6 +158,11 @@ export default async function GuideAppliancePage({
                       <p className="text-xs text-[var(--color-text-light)] mt-2">
                         Coût estimé : {problem.estimatedRepairCost}
                       </p>
+                      {problem.replacementAdvice && (
+                        <span className="inline-block text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 mt-1">
+                          💡 Remplacement à considérer
+                        </span>
+                      )}
                     </div>
                   </div>
                 </Link>
